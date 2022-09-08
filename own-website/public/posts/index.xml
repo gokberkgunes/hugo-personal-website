@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Gokberk Gunes</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Gokberk Gunes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 30 Jul 2022 20:09:05 +0300</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Keyboat Layouts for Xorg &amp; TTY</title>
+      <link>/posts/xorg-keymap/</link>
+      <pubDate>Sat, 30 Jul 2022 20:09:05 +0300</pubDate>
+      
+      <guid>/posts/xorg-keymap/</guid>
+      <description>This guide will lead one in following fields:
+Figure out possible available layouts, change layouts either temporarily or permanently, Alter layouts in Xorg or in TTY. Requirements: xorg, xorg-setxkmap, root access (doas/sudo/su).
+Xorg: Keyboard Layouts and Variants For Xorg layouts and variants and explanations is located in a text file: /usr/share/X11/xkb/rules/evdev.lst.
+After the decision of layout, it is recommended to pick a variant for preferred layout. E.g. for German, de, picking German (dead acute) will be de deadacute.</description>
+    </item>
+    
+    <item>
+      <title>Starting out with Hugo</title>
+      <link>/posts/hugo/</link>
+      <pubDate>Thu, 03 Sep 2020 17:27:59 +0700</pubDate>
+      
+      <guid>/posts/hugo/</guid>
+      <description>Download hugo, using pacman in this example. Check official website for other ways.1 1pacman -Sy hugo Create a new website. Configuration file uses toml by default, yml format is possible with appending -f yml to below command. 1hugo new site my-website Download a theme and initialize it. 1cd my-website 2git init 3git submodule add git-link-here themes/theme-name Set the theme on toml file. 1printf &amp;#34;theme = &amp;#34;theme-name&amp;#34;\n&amp;#34; &amp;gt;&amp;gt; config.toml Change your settings inside config.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+	<link rel="shortcut icon" href="/img/me.ico" >
+	<meta name="description" content="Personal website of Gokberk Gunes.">
+	<title>Keyboat Layouts for Xorg &amp; TTY | Gokberk Gunes</title>
+	
+</head>
+
+<body>
+
+<div id="container">
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<nav class="navBar" scrolling="no">
+	
+	<ul class="navMenu">
+		<li class="navItemImg"><a class="navLinkImg" href=""><img src=/img/me.jpg alt="picture"></a></img></li>
+		
+		<li class="navItem"> <a href="/"  > Home</a></li>
+		
+		<li class="navItem"> <a href="/posts"  > Posts</a></li>
+		
+		<li class="navItem"> <a href="https://github.com/gokberkgunes" target="_blank" > Github</a></li>
+		
+	</ul>
+</nav>
+
+<main class="content">
+
+
+<h1>Keyboat Layouts for Xorg &amp; TTY</h1>
+
+<p>This guide will lead one in following fields:</p>
+<ul>
+<li>Figure out possible available layouts,</li>
+<li>change layouts either temporarily or permanently,</li>
+<li>Alter layouts in Xorg or in TTY.</li>
+</ul>
+<p>Requirements: xorg, xorg-setxkmap, root access (doas/sudo/su).</p>
+<h2 id="xorg-keyboard-layouts-and-variants">Xorg: Keyboard Layouts and Variants</h2>
+<p>For Xorg layouts and variants and explanations is located in a text file:
+<code>/usr/share/X11/xkb/rules/evdev.lst</code>.</p>
+<p>After the decision of layout, it is recommended to pick a variant for preferred
+layout. E.g. for German, <strong>de</strong>, picking German (dead acute) will be <strong>de
+deadacute</strong>.</p>
+<p><strong>Note:</strong> A more tidy version of this list may be found 
+
+<a href="https://man.archlinux.org/man/xkeyboard-config.7" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<h4 id="temporarily-change-the-layout">Temporarily change the layout</h4>
+<p>If one wants to temporarily change the layout <code>setxkbmap</code> may be used. This is
+handy for scripting and keymapping purposes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-0-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-1">1</a></span><span>setxkbmap tr alt
+</span></span></code></pre></div><h4 id="permanently-change-the-layout">Permanently change the layout</h4>
+<p>Create the configuration file as shown.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-1-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-1-1">1</a></span><span>doas touch /etc/X11/xorg.conf.d/00-keyboard.conf
+</span></span></code></pre></div><p>Edit this file as root-user and add desired settings to it. An example is
+given below for demonstration purposes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-2-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-1">1</a></span><span>Section <span style="color:#ed9d13">&#34;InputClass&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-2-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-2">2</a></span><span>	Identifier <span style="color:#ed9d13">&#34;system-keyboard&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-2-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-3">3</a></span><span>	MatchIsKeyboard <span style="color:#ed9d13">&#34;on&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-2-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-4">4</a></span><span>	Option <span style="color:#ed9d13">&#34;XkbLayout&#34;</span> <span style="color:#ed9d13">&#34;tr,ru,us&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-2-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-5">5</a></span><span>	Option <span style="color:#ed9d13">&#34;XkbVariant&#34;</span> <span style="color:#ed9d13">&#34;alt,,dvorak&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-2-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-6">6</a></span><span>	Option <span style="color:#ed9d13">&#34;XkbOptions&#34;</span> <span style="color:#ed9d13">&#34;alt_space_toggle,caps:super,altwin:menuwin&#34;</span> <span style="color:#999;font-style:italic">#&#34;grp:rctrl_toggle&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-2-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-7">7</a></span><span>EndSection
+</span></span></code></pre></div><p><strong>XkbLayout</strong> option states the desired layouts.
+<strong>XkbVariant</strong> indicates the layouts&rsquo; variants.
+<strong>XkbOption</strong> is used for additional settings.</p>
+<h2 id="tty-keyboard-layouts-and-variants">TTY: Keyboard Layouts and Variants</h2>
+<p>For TTY layouts file names in the following directory will be used:
+<code>/usr/share/kbd/keymaps/i386</code>
+For example, picking a qwerty layout: tralt.map.gz. Then the name is <code>tralt</code>.</p>
+<h4 id="temporarily-change-the-tty-layout">Temporarily change the TTY layout</h4>
+<p>Temporary change might not be possible; however, at least it can be used to
+ensure permanent change will work successfully. This command requires a TTY to
+work and to report back correctly. (For example, swapping to 2nd TTY is
+possible <code>CTRL+ALT+F2</code> in Xorg and <code>ALT+F2</code> in TTY.)</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-3-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-3-1">1</a></span><span>loadkeys -v <span style="color:#ed9d13">&#34;tralt&#34;</span>
+</span></span></code></pre></div><h4 id="permanently-change-the-tty-layout">Permanently change the TTY layout</h4>
+<p>Create the configuration file as below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-4-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-4-1">1</a></span><span>doas touch /etc/vconsole.conf
+</span></span></code></pre></div><p>This file should be edited for wanted layout such as below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d0d0d0;background-color:#202020;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-5-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-5-1">1</a></span><span><span style="color:#40ffff">KEYMAP</span>=tralt
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#686868" id="hl-5-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-5-2">2</a></span><span><span style="color:#40ffff">FONT</span>=Lat2-Terminus16
+</span></span></code></pre></div><p><strong>Note:</strong> Pre-installed fonts can be found at <code>/usr/share/kbd/consolefonts</code>.</p>
+<h2 id="further-reading">Further Reading</h2>
+
+
+
+
+</main>
+</div>
+<footer>
+	<div class ="footer_frame", scrolling="no">
+		<span class="update-date">Last update: 2022-09-09</span>
+		<span class="license"><a href="https://www.gnu.org/licenses/fdl-1.3.html" target="_blank" rel="noopener noreferrer"><img src=/img/gnuNoBackground.png alt="license"></img>License</a></span>
+	</div>
+</footer>
+</body>
+
+</html>
+
