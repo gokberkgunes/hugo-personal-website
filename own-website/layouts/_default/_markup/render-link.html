@@ -1,0 +1,4 @@
+<!-- OPEN LINKS IN NEW TABS -->
+<!-- Ref. https://discourse.gohugo.io/t/how-to-open-link-in-new-tab/35470/2 -->
+<a href="{{ .Destination }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- /* chomp */ -}}

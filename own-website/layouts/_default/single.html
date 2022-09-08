@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+<!-- {{ $content := .Content }}
+{{ $content = replaceRE `<a href="(https?://.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}
+{{ $content = replaceRE `<a href="(mailto:.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}
+{{ $content | safeHTML }}
+-->
+
+
+{{ partial "footer.html" . }}
