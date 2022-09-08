@@ -14,8 +14,12 @@ title = "Gokberk Gunes"
 		url        = "/posts"
 		weight     = 2
 	[[menu.main]]
-		identifier = "github"
 		name       = "Github"
+		# Ref. https://github.com/JupiterBroadcasting/jupiterbroadcasting.com/issues/47
+		# Open this in new tab, use ext- prefix in the identifier.
+		# This hack has its roots in /layouts/partials/nav.html as
+		# {{ if (hasPrefix .Identifier "ext-") }}target="_blank"{{ end }}
+		identifier = "ext-github"
 		url        = "https://github.com/gokberkgunes"
 		weight     = 3
 	#[[menu.main]]
@@ -40,7 +44,8 @@ title = "Gokberk Gunes"
 		lineNumbersInTable = false
 		noClasses = true
 		noHl = true
-		style = "pygments"
+# Themes: https://xyproto.github.io/splash/docs/longer/index.html
+		style = "native"
 		tabWidth = 8
 	# Markdown convertion settings
 	[markup.goldmark]
