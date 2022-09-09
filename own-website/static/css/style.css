@@ -247,6 +247,15 @@ a {
 }
 
 
+/* PUT $ IF IT'S BASH/SH BUT NOT SELECTABLE */
+code.language-bash span:not([style])::before{
+  content: "$ ";
+}
+code.language-sh span:not([style])::before{
+  content: "$ ";
+}
+
+
 /* *----------------------------------------------------------------------*
    │                                FOOTER                                │
    *----------------------------------------------------------------------*/

@@ -32,7 +32,7 @@ doas touch /etc/X11/xorg.conf.d/00-keyboard.conf
 ```
 Edit this file as root-user and add desired settings to it. An example is
    given below for demonstration purposes.
-```sh
+```text
 Section "InputClass"
 	Identifier "system-keyboard"
 	MatchIsKeyboard "on"
