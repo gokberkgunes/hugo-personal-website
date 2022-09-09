@@ -22,6 +22,11 @@ title = "Gokberk Gunes"
 		identifier = "ext-github"
 		url        = "https://github.com/gokberkgunes"
 		weight     = 3
+	[[menu.main]]
+		name       = "Search Engine"
+		identifier = "searx"
+		url        = "/searx"
+		weight     = 4
 	#[[menu.main]]
 	#	identifier = "about"
 	#	name       = "About"
