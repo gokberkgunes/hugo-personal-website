@@ -27,6 +27,11 @@ title = "Gokberk Gunes"
 		identifier = "searx"
 		url        = "/searx"
 		weight     = 4
+	[[menu.main]]
+		name       = "Reddit"
+		identifier = "libreddit"
+		url        = ":8080"
+		weight     = 5
 	#[[menu.main]]
 	#	identifier = "about"
 	#	name       = "About"

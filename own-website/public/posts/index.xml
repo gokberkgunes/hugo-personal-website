@@ -24,7 +24,7 @@ After the decision of layout, it is recommended to pick a variant for preferred 
       <pubDate>Thu, 03 Sep 2020 17:27:59 +0700</pubDate>
       
       <guid>/posts/hugo/</guid>
-      <description>Download hugo, using pacman in this example. Check official website for other ways.1 1pacman -Sy hugo Create a new website. Configuration file uses toml by default, yml format is possible with appending -f yml to below command. 1hugo new site my-website Download a theme and initialize it. 1cd my-website 2git init 3git submodule add git-link-here themes/theme-name Set the theme on toml file. 1printf &amp;#34;theme = &amp;#34;theme-name&amp;#34;\n&amp;#34; &amp;gt;&amp;gt; config.toml Change your settings inside config.</description>
+      <description>Download hugo, using pacman in this example. Check official website for other ways.1 pacman -Sy hugo Create a new website. Configuration file uses toml by default, yml format is possible with appending -f yml to below command. hugo new site my-website Download a theme and initialize it. cd my-website git init git submodule add git-link-here themes/theme-name Set the theme on toml file. printf &amp;#34;theme = &amp;#34;theme-name&amp;#34;\n&amp;#34; &amp;gt;&amp;gt; config.toml Change your settings inside config.</description>
     </item>
     
   </channel>
