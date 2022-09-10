@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on Gokberk Gunes</title>
-    <link>gg.wp/</link>
+    <link>/</link>
     <description>Recent content in Home on Gokberk Gunes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 30 Jul 2022 20:09:05 +0300</lastBuildDate><atom:link href="gg.wp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 20:09:05 +0300</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Keyboat Layouts for Xorg &amp; TTY</title>
-      <link>gg.wp/posts/xorg-keymap/</link>
+      <link>/posts/xorg-keymap/</link>
       <pubDate>Sat, 30 Jul 2022 20:09:05 +0300</pubDate>
       
-      <guid>gg.wp/posts/xorg-keymap/</guid>
+      <guid>/posts/xorg-keymap/</guid>
       <description>This guide will lead one in following fields:
 Figure out possible available layouts, change layouts either temporarily or permanently, Alter layouts in Xorg or in TTY. Requirements: xorg, xorg-setxkmap, root access (doas/sudo/su).
 Xorg: Keyboard Layouts and Variants For Xorg layouts and variants and explanations is located in a text file: /usr/share/X11/xkb/rules/evdev.lst.
@@ -20,19 +20,19 @@ After the decision of layout, it is recommended to pick a variant for preferred 
     
     <item>
       <title>Starting out with Hugo</title>
-      <link>gg.wp/posts/hugo/</link>
+      <link>/posts/hugo/</link>
       <pubDate>Thu, 03 Sep 2020 17:27:59 +0700</pubDate>
       
-      <guid>gg.wp/posts/hugo/</guid>
+      <guid>/posts/hugo/</guid>
       <description>Download hugo, using pacman in this example. Check official website for other ways.1 pacman -Sy hugo Create a new website. Configuration file uses toml by default, yml format is possible with appending -f yml to below command. hugo new site my-website Download a theme and initialize it. cd my-website git init git submodule add git-link-here themes/theme-name Set the theme on toml file. printf &amp;#34;theme = &amp;#34;theme-name&amp;#34;\n&amp;#34; &amp;gt;&amp;gt; config.toml Change your settings inside config.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>gg.wp/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>gg.wp/about/</guid>
+      <guid>/about/</guid>
       <description>Title1 works Here&amp;rsquo;s a bit about me.</description>
     </item>
     
