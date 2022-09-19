@@ -25,12 +25,12 @@ title = "Gokberk Gunes"
 	[[menu.main]]
 		name       = "Search Engine"
 		identifier = "searx"
-		url        = "/searx"
+		url        = "https://searx.berksen.net"
 		weight     = 4
 	[[menu.main]]
 		name       = "Reddit"
 		identifier = "libreddit"
-		url        = "http://192.168.0.2:8080"
+		url        = "https://libreddit.berksen.net"
 		weight     = 5
 	#[[menu.main]]
 	#	identifier = "about"
