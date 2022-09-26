@@ -20,22 +20,22 @@ hugo new site my-website
 cd my-website
 git init
 git submodule add git-link-here themes/theme-name
-````
+```
 
 4. Set the theme on toml file.
-```shell
+```sh
 printf "theme = "theme-name"\n" >> config.toml
 ```
 
 6. Change your settings inside `config.yml` or `config.toml`.
 
 7. Check your website, it will be dynamically updated whenever a file is changed.
-```shell
+```sh
 hugo server & ; firefox http://localhost:1313/
 ```
 
 9. All post should be located at the folder called `content`, create a new file.
-```shell
+```sh
 hugo new posts/first.md
 ```
 10. This file consists three settings, default template could be changed at
