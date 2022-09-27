@@ -7,6 +7,7 @@
 	--fg1: #d6dbe5;
 	--fg2: #a9afab;
 	--purple: #7A6281;
+	--blue: #205070;
 
 }
 /* DEFINE THE SCROLLBAR */
@@ -17,7 +18,7 @@ body::-webkit-scrollbar-track {
 	background: var(--bg1);
 }
 body::-webkit-scrollbar-thumb {
-	background: var(--purple);
+	background: var(--blue);
 }
 body {
 	color: var(--fg2);
@@ -99,7 +100,7 @@ body {
 .navBar .navMenu li a:visited {
 	color: var(--fg1);
 }
-/* .navBar .navMenu li a:hover {color: var(--purple);} */
+/* .navBar .navMenu li a:hover {color: var(--blue);} */
 #container {
 	display: flex;
 	flex-wrap: wrap;
@@ -126,10 +127,10 @@ body {
 		display: block;
 	}
 	.navItem:hover {
-		background: var(--purple);
+		background: var(--blue);
 	}
 	.navItemImg:hover {
-		background: var(--purple);
+		background: var(--blue);
 	}
 	.content {
 		background-color: var(--bg2);
@@ -150,7 +151,7 @@ body {
 		top: 0;
 		position: sticky;
 		width: 100vw;
-		background: var(--purple);
+		background: var(--blue);
 	}
 	.navBar img {
 		display: none;
@@ -196,9 +197,9 @@ body {
 /* HEADERS MIGHT CAUSE ISSUES WITH TOP & LEFT MARGIN */
 /* TODO: colorful header tags */
 h1, h2, h3, h4, h5, h6{
-	border-bottom: 1px dashed var(--purple);
+	border-bottom: 1px dashed var(--blue);
 	/* border-bottom-right-radius: 5px; */
-	color: var(--purple);
+	color: var(--blue);
 	margin: 0px;
 	padding: 5px;
 	width: 80%;
@@ -215,18 +216,16 @@ a {
 .content pre {
 	/* Hugo specific: consider using the 'highlight' shortcode */
 	display: block;
-	margin-top: 1rem;
-	margin-bottom: 3rem;
+	margin-top: 0rem;
+	margin-bottom: 0rem;
 	padding: 1rem;
-	padding-left: 2rem;
-	padding-right: 2rem;
 
 	white-space: pre-wrap; /* pre doesn't wrap by default */
-	margin-left: 2rem;
-	margin-right: 2rem;
-	border: 1px solid var(--purple);
-	border-radius: 1rem;
-	background-color: #202020;
+	margin-left: 4rem;
+	margin-right: 4rem;
+	border: 1px solid var(--blue);
+	border-radius: 0rem;
+	background-color: #303030;
 }
 .content pre code {
 	/* CODE triple  ```) */
@@ -247,12 +246,13 @@ a {
 }
 
 
-/* PUT $ IF IT'S BASH/SH BUT NOT SELECTABLE */
-code.language-bash span:not([style])::before{
-  content: "$ ";
-}
+/* PUT $ IF IT'S SH BUT NOT SELECTABLE */
 code.language-sh span:not([style])::before{
   content: "$ ";
+}
+/* PUT # IF IT'S SHELL INSTEAD OF SH BUT NOT SELECTABLE */
+code.language-shell span:not([style])::before{
+  content: "# ";
 }
 
 
