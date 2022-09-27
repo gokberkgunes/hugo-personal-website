@@ -200,13 +200,18 @@ h1, h2, h3, h4, h5, h6{
 	border-bottom: 1px dashed var(--blue);
 	/* border-bottom-right-radius: 5px; */
 	color: var(--blue);
-	margin: 0px;
+	margin: 1rem;
 	padding: 5px;
 	width: 80%;
 }
 a {
 	color: #4289a1;
 	border: 0px;
+}
+
+h3 time{
+	color: var(--fg2);
+	font-size: 10px;
 }
 
 
@@ -290,3 +295,4 @@ code.language-shell span:not([style])::before{
 .footer_frame img:hover {
 	opacity: .5;
 }
+

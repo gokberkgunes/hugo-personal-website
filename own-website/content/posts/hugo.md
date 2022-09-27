@@ -54,8 +54,14 @@ your own theme. Below websites should help with markdown and theme creation.
 Github theme is a good start for the designing a theme, and it comes with
 a video. CSS and HTML skills are another story if own theme is being designed.
 * [Learn markdown: Github](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Markdown More](https://learn.netlify.app/en/cont/markdown/)
 * [Hugo theme creation: Youtube](https://youtu.be/wcMqrb3v2SM)
 * [Hugo starter theme: Github](https://github.com/ericmurphyxyz/hugo-starter-theme)
+* [Hugo guides](https://digitaldrummerj.me/series/blogging-with-hugo/)
 * [CSS references](https://www.w3schools.com/CSSref/pr_border-bottom.asp)
+* [Hugo's Page Resources](https://gohugo.io/content-management/page-resources/)
+* [Hugo Subsections](https://github.com/guayom/hugo-sub-sections)
+%%https://discourse.gohugo.io/t/section-page-with-subpages-and-navigation/11902/2
+%%https://gohugo.io/templates/lists#example-project-directory
 
 [^1]: [Hugo Website](https://gohugo.io/getting-started/installing/)
