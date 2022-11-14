@@ -61,6 +61,7 @@ a video. CSS and HTML skills are another story if own theme is being designed.
 * [CSS references](https://www.w3schools.com/CSSref/pr_border-bottom.asp)
 * [Hugo's Page Resources](https://gohugo.io/content-management/page-resources/)
 * [Hugo Subsections](https://github.com/guayom/hugo-sub-sections)
+* [Short Codes](https://hongtaoh.com/en/2020/11/03/custom-blocks-hugo/)
 %%https://discourse.gohugo.io/t/section-page-with-subpages-and-navigation/11902/2
 %%https://gohugo.io/templates/lists#example-project-directory
 

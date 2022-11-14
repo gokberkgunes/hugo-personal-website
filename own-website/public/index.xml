@@ -1,30 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on Gokberk Gunes</title>
-    <link>/</link>
-    <description>Recent content in Home on Gokberk Gunes</description>
+    <title>Gokberk Gunes</title>
+    <link>base/</link>
+    <description>Recent content on Gokberk Gunes</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 28 Sep 2022 01:40:39 +0300</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Jitsi Meet Installation on Artix Linux</title>
-      <link>/posts/jitsi-install/main/</link>
-      <pubDate>Wed, 28 Sep 2022 01:40:39 +0300</pubDate>
-      
-      <guid>/posts/jitsi-install/main/</guid>
-      <description> Configuration files are found at https://github.com/jitsi/jitsi-meet/tree/master/doc/debian/
-Arch wiki https://wiki.archlinux.org/title/Jitsi-meet
-BEST GUIDE https://blog.celogeek.com/posts/linux/archlinux/2021-02-jitsi-meet-nighly-on-arch-linux/
-Switch to root account and get required packages
-doas su pacman -S gnupg nginx-mainline curl java-environment-common maven npm Set local loopback so that programs can talk to each other. /etc/hosts: 127.0.0.1 YOUR_DOMAIN auth.YOUR_DOMAIN ::1 YOUR_DOMAIN auth.YOUR_DOMAIN </description>
-    </item>
-    
+    <lastBuildDate>Wed, 28 Sep 2022 01:40:39 +0300</lastBuildDate><atom:link href="base/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Keyboat Layouts for Xorg &amp; TTY</title>
-      <link>/posts/xorg-keymap/</link>
+      <link>base/posts/xorg-keymap/</link>
       <pubDate>Sat, 30 Jul 2022 20:09:05 +0300</pubDate>
       
-      <guid>/posts/xorg-keymap/</guid>
+      <guid>base/posts/xorg-keymap/</guid>
       <description>This guide will lead one in following fields:
 Figure out possible available layouts, change layouts either temporarily or permanently, Alter layouts in Xorg or in TTY. Requirements: xorg, xorg-setxkmap, root access (doas/sudo/su).
 Xorg: Keyboard Layouts and Variants For Xorg layouts and variants and explanations is located in a text file: /usr/share/X11/xkb/rules/evdev.lst.
@@ -33,20 +20,11 @@ After the decision of layout, it is recommended to pick a variant for preferred 
     
     <item>
       <title>Starting out with Hugo</title>
-      <link>/posts/hugo/</link>
+      <link>base/posts/hugo/</link>
       <pubDate>Thu, 03 Sep 2020 17:27:59 +0700</pubDate>
       
-      <guid>/posts/hugo/</guid>
+      <guid>base/posts/hugo/</guid>
       <description>Download hugo, using pacman in this example. Check official website for other ways.1 pacman -Sy hugo Create a new website. Configuration file uses toml by default, yml format is possible with appending -f yml to below command. hugo new site my-website Download a theme and initialize it. cd my-website git init git submodule add git-link-here themes/theme-name Set the theme on toml file. printf &amp;#34;theme = &amp;#34;theme-name&amp;#34;\n&amp;#34; &amp;gt;&amp;gt; config.toml Change your settings inside config.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Title1 works Here&amp;rsquo;s a bit about me.</description>
     </item>
     
   </channel>

@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "base"
 title = "Gokberk Gunes"
 #theme = "starter"
 
@@ -23,7 +23,7 @@ title = "Gokberk Gunes"
 		url        = "https://github.com/gokberkgunes"
 		weight     = 3
 	[[menu.main]]
-		name       = "Search Engine"
+		name       = "Search"
 		identifier = "searx"
 		url        = "https://searx.berksen.net"
 		weight     = 4
@@ -55,7 +55,7 @@ title = "Gokberk Gunes"
 	[markup.highlight]
 		anchorLineNos = false
 		codeFences = true # Set.
-		guessSyntax = true # Set.
+		guessSyntax = false # Needed for custom codefences.
 
 		hl_Lines = ''
 		hl_inline = false # Set.

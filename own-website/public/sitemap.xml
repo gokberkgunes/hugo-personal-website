@@ -2,25 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>base/</loc>
+    <lastmod>2022-09-28T01:40:39+03:00</lastmod>
+    <priority>0</priority>
+  </url><url>
+    <loc>base/posts/jitsi-install/</loc>
     <lastmod>2022-09-28T01:40:39+03:00</lastmod>
   </url><url>
-    <loc>/posts/jitsi-install/main/</loc>
+    <loc>base/posts/</loc>
     <lastmod>2022-09-28T01:40:39+03:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2022-09-28T01:40:39+03:00</lastmod>
-  </url><url>
-    <loc>/posts/xorg-keymap/</loc>
+    <loc>base/posts/xorg-keymap/</loc>
     <lastmod>2022-07-30T20:09:05+03:00</lastmod>
   </url><url>
-    <loc>/posts/hugo/</loc>
+    <loc>base/posts/hugo/</loc>
     <lastmod>2020-09-03T17:27:59+07:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>base/categories/</loc>
   </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/tags/</loc>
+    <loc>base/tags/</loc>
   </url>
 </urlset>
