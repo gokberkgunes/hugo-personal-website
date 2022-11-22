@@ -706,3 +706,14 @@ Restart services.
 sv restart jicofo
 sv restart prosody
 ```
+
+You may check current accounts and their passwords below.
+```txtt
+/var/lib/prosody/domain_name/accounts/name.dat
+```
+```txtb
+return {
+	["password"] = "account_password";
+};
+```
+
