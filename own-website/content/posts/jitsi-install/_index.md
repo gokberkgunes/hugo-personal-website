@@ -13,7 +13,7 @@ This guide will cover the self-hosting part, usage is piece of cake anyway.
 (The guide is adapted from Arch Linux' wiki page and Celogreek's guide.)
 
 
-Below one may find references, useful links to accompany this guide.
+Below the one may find references, useful links to accompany this guide.
 - [Configuration files](https://github.com/jitsi/jitsi-meet/tree/master/doc/debian/)
 - [Arch wiki](https://wiki.archlinux.org/title/Jitsi-meet)
 - [Celogreek's guide](https://blog.celogeek.com/posts/linux/archlinux/2021-02-jitsi-meet-nighly-on-arch-linux/)
@@ -95,8 +95,9 @@ sysusers
 In below file modify **JICOFO_HOSTNAME**, **JICOFO_AUTH_DOMAIN**,
 **JICOFO_AUTH_PASSWORD** with your information.
 
-Change **meet.berksen.net** to your domain adress and change password to your
-focus user's password. For the password, the one may use `openssl rand -hex 16`.
+Change **meet.berksen.net** to your domain adress and change password1 to your
+focus user's password. To generate a password, the one may use `openssl rand
+-hex 16`.
 ```txtt
 /etc/jicofo/config
 ```
@@ -263,7 +264,7 @@ org.jitsi.videobridge.STATISTICS_TRANSPORT=muc
 org.jitsi.videobridge.xmpp.user.shard.HOSTNAME=localhost
 org.jitsi.videobridge.xmpp.user.shard.DOMAIN=auth.meet.berksen.net
 org.jitsi.videobridge.xmpp.user.shard.USERNAME=jvb
-org.jitsi.videobridge.xmpp.user.shard.PASSWORD=password
+org.jitsi.videobridge.xmpp.user.shard.PASSWORD=password2
 org.jitsi.videobridge.xmpp.user.shard.MUC_JIDS=JvbBrewery@internal.auth.meet.berksen.net
 org.jitsi.videobridge.xmpp.user.shard.MUC_NICKNAME=uuid
 ```
@@ -519,11 +520,11 @@ nginx -t
 ```
 ## Register Users
 
-Register for jicofo. (Check password at /etc/jicofo/config)
+Register for jicofo. (Check password1 at /etc/jicofo/config)
 ```sh
 prosodyctl register focus auth.meet.berksen.net password1
 ```
-Register for jitsi-videobridge. (Check password at /etc/jitsi-videobridge/config)
+Register for jitsi-videobridge. (Check password2 at /etc/jitsi-videobridge/config)
 ```sh
 prosodyctl register jvb auth.meet.berksen.net password2
 ```
