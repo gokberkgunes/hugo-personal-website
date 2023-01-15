@@ -1,11 +1,15 @@
 <!-- https://gohugo.io/templates/render-hooks/#render-hooks-for-code-blocks -->
 <!-- gg: txtb will fallback to text highlighter, but will have covering div to
-	target it with CSS -->
+target it with CSS -->
+
 {{ $class := .Attributes.class | default ""    }}
 {{ $lang  := .Attributes.lang  | default .Type }}
+ <!-- Add ":" to the end of .Inner Ref.
+ https://www.stackbit.com/blog/advanced-hugo-templates-->
+{{ $inner := print .Inner ":"}}
 
 {{ if transform.CanHighlight $lang }}
 <div class="{{ $class }}">{{ highlight .Inner $lang }}</div>
 {{else}}
-<div class="textt">{{ highlight .Inner "text" }}</div>
+<div class="textt">{{ highlight $inner "text" }}</div>
 {{end}}

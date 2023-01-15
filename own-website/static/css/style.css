@@ -12,7 +12,10 @@
 	--blue: #205070;
 
 }
-/* DEFINE THE SCROLLBAR */
+/* Good hugo theme css:
+ * https://github.com/nishanths/cocoa-hugo-theme/blob/master/static/css/main.css
+ * DEFINE THE SCROLLBAR
+ */
 body::-webkit-scrollbar {
 	width: 0.5rem;
 }
@@ -23,6 +26,7 @@ body::-webkit-scrollbar-thumb {
 	background: var(--purple);
 }
 body {
+	width: 100vw !important;
 	color: var(--fg2);
 	background-color: var(--bg1);
 	margin: 0px;
@@ -31,6 +35,7 @@ body {
 
 
 /* Engineering to center, adding a padding works but enlarges the area.*/
+/* 
 /*main {
 	background-color: var(--bg3);
 	min-height: calc(90vh - 40px - 8rem);
@@ -48,11 +53,6 @@ body {
 /* *----------------------------------------------------------------------*
    │                           NAVIGATION FRAME                           │
    *----------------------------------------------------------------------*/
-.navBar {
-	filter: grayscale(0%) opacity(0.5);
-	align-content: center;
-	text-align: center;
-}
 .navMenu {
 	list-style: none;
 	padding: 0;
@@ -115,6 +115,11 @@ body {
 		top: 0;
 		position: sticky;
 		background-color: var(--bg2);
+
+		align-content: center;
+		text-align: center;
+		filter: grayscale(0%) opacity(0.7);
+
 		margin: 2rem;
 		/* 100 window height - 4rem? */
 		height: calc(100vh - 40px - 4rem);
@@ -153,7 +158,10 @@ body {
 		top: 0;
 		position: sticky;
 		width: 100vw;
-		background: var(--main1);
+		background: #846E8A;
+		align-content: center;
+		text-align: center;
+		filter: opacity(0.7);
 	}
 	.navBar img {
 		display: none;
@@ -188,8 +196,8 @@ body {
 
 		/* align-self: flex-start; */ /* retain its own height */
 		width: calc(80% - 5rem);
-		/* min-height: 100%; */
-		height: calc(100vh - 4rem - 56px);
+		height: 100%;
+		min-height: calc(100vh - 6rem - 56px - 2px);
 	}
 }
 
@@ -227,10 +235,16 @@ h3 time{
 	margin-bottom: 0rem;
 	padding: 1rem;
 	white-space: pre-wrap; /* pre doesn't wrap by default */
-	margin-left: 4rem;
-	margin-right: 4rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
 	/*border: 1px solid var(--main1);*/
 	border-radius: 0rem;
+
+	/* Set wrapping for long code blocks */
+	white-space: pre;
+	word-break: break-all;
+	word-wrap: break-word;
+	overflow-x: auto;
 }
 
 .content code {
@@ -245,6 +259,7 @@ h3 time{
 	margin: 0;
 	font-size: 0.8rem;
 	padding: 0;
+	overflow: hidden
 }
 
 /* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
