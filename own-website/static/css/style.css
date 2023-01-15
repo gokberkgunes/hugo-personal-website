@@ -6,7 +6,9 @@
 	--bg3: #3a3a3a;
 	--fg1: #d6dbe5;
 	--fg2: #a9afab;
-	--purple: #7A6281;
+
+	--main1: #B790C2;
+	--purple: #B790C2;
 	--blue: #205070;
 
 }
@@ -18,7 +20,7 @@ body::-webkit-scrollbar-track {
 	background: var(--bg1);
 }
 body::-webkit-scrollbar-thumb {
-	background: var(--blue);
+	background: var(--purple);
 }
 body {
 	color: var(--fg2);
@@ -127,10 +129,10 @@ body {
 		display: block;
 	}
 	.navItem:hover {
-		background: var(--blue);
+		background: var(--main1);
 	}
 	.navItemImg:hover {
-		background: var(--blue);
+		background: var(--main1);
 	}
 	.content {
 		background-color: var(--bg2);
@@ -151,7 +153,7 @@ body {
 		top: 0;
 		position: sticky;
 		width: 100vw;
-		background: var(--blue);
+		background: var(--main1);
 	}
 	.navBar img {
 		display: none;
@@ -197,20 +199,20 @@ body {
 /* HEADERS MIGHT CAUSE ISSUES WITH TOP & LEFT MARGIN */
 /* TODO: colorful header tags */
 h1, h2, h3, h4, h5, h6{
-	border-bottom: 1px dashed var(--blue);
+	border-bottom: 1px dashed var(--purple);
 	/* border-bottom-right-radius: 5px; */
-	color: var(--blue);
-	margin: 1rem;
-	padding: 5px;
-	width: 80%;
+	color: var(--purple);
+	margin: 0rem;
+	margin-left: -5px;
+	padding: 10px;
+	width: 100%;
 }
 a {
-	color: #4289a1;
-	border: 0px;
+	color: var(--purple);
+	border: 10px;
 }
 
 h3 time{
-	color: var(--fg2);
 	font-size: 10px;
 }
 
@@ -224,32 +226,32 @@ h3 time{
 	margin-top: 0rem;
 	margin-bottom: 0rem;
 	padding: 1rem;
-
 	white-space: pre-wrap; /* pre doesn't wrap by default */
 	margin-left: 4rem;
 	margin-right: 4rem;
-	border: 1px solid var(--blue);
+	/*border: 1px solid var(--main1);*/
 	border-radius: 0rem;
-	background-color: #303030;
+}
+
+.content code {
+	/* enclosed by single backtick (`) */
+	padding: .2em .4em;
+	margin: 0;
+	font-size: 1rem;
+	border-radius: 1px;
 }
 .content pre code {
 	/* CODE triple  ```) */
-	color: #aaa;
 	margin: 0;
 	font-size: 0.8rem;
 	padding: 0;
 }
 
-.content code {
-	/* enclosed by single backtick (`) */
-	color: #fdd401;
-	padding: .2em .4em;
-	margin: 0;
-	font-size: 1rem;
-	background-color: rgba(27, 31, 35, .05);
-	border-radius: 1px;
+/* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
+div.textt > div.highlight > pre
+{
+ 	border-bottom: 1px solid var(--main1); 
 }
-
 
 /* PUT $ IF IT'S SH BUT NOT SELECTABLE */
 code.language-sh span:not([style])::before{
