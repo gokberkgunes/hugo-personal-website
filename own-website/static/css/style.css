@@ -269,16 +269,37 @@ h3 time{
 	font-family: monospace;
 	padding: 3px 3px;
 	background-color: var(--bg3);
+
 }
 .content pre code {
 	/* CODE triple  ```) */
+
+
 	margin: 0;
-	line-height: 1;
+	line-height: 1.1;
 	font-size: 12px;
 	font-family: monospace;
 	padding: 0px 0px;
+	/* SELECT ALL */
 
 }
+/* click once select all, click again to select normally. Ref.
+ * https://codersblock.com/blog/using-css-to-control-text-selection/
+ */
+div > pre.chroma {
+	-webkit-user-select: all;
+	user-select: all;
+}
+div > pre.chroma:focus {
+	animation: select 100ms step-end forwards;
+}
+@keyframes select {
+	to {
+		-webkit-user-select: text;
+		user-select: text;
+	}
+}
+/* -------------------------------------------------------------- */
 
 /* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
 div.textt > div.highlight > pre
