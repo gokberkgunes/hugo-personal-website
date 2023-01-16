@@ -62,7 +62,8 @@ a video. CSS and HTML skills are another story if own theme is being designed.
 * [Hugo's Page Resources](https://gohugo.io/content-management/page-resources/)
 * [Hugo Subsections](https://github.com/guayom/hugo-sub-sections)
 * [Short Codes](https://hongtaoh.com/en/2020/11/03/custom-blocks-hugo/)
-%%https://discourse.gohugo.io/t/section-page-with-subpages-and-navigation/11902/2
-%%https://gohugo.io/templates/lists#example-project-directory
+
+<!-- https://discourse.gohugo.io/t/section-page-with-subpages-and-navigation/11902/2 -->
+<!-- https://gohugo.io/templates/lists#example-project-directory -->
 
 [^1]: [Hugo Website](https://gohugo.io/getting-started/installing/)

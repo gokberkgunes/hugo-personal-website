@@ -8,7 +8,6 @@
 	--fg2: #a9afab;
 
 	--main1: #B790C2;
-	--purple: #B790C2;
 	--blue: #205070;
 
 }
@@ -16,6 +15,10 @@
  * https://github.com/nishanths/cocoa-hugo-theme/blob/master/static/css/main.css
  * DEFINE THE SCROLLBAR
  */
+html {
+	background: var(--bg1);
+	line-height: 1.5;
+}
 body::-webkit-scrollbar {
 	width: 0.5rem;
 }
@@ -23,11 +26,11 @@ body::-webkit-scrollbar-track {
 	background: var(--bg1);
 }
 body::-webkit-scrollbar-thumb {
-	background: var(--purple);
+	background: var(--fg1);
 }
 body {
 	width: 100vw !important;
-	color: var(--fg2);
+	color: var(--fg1);
 	background-color: var(--bg1);
 	margin: 0px;
 	padding: 0px;
@@ -78,8 +81,8 @@ body {
 
 .navBar img {
 	width: 8rem;
-	margin: 0pt;
-	padding: 0pt;
+	margin: 0px;
+	padding: 0px;
 }
 
 
@@ -102,7 +105,7 @@ body {
 .navBar .navMenu li a:visited {
 	color: var(--fg1);
 }
-/* .navBar .navMenu li a:hover {color: var(--blue);} */
+/* .navBar .navMenu li a:hover {color: var(--main1);} */
 #container {
 	display: flex;
 	flex-wrap: wrap;
@@ -207,17 +210,18 @@ body {
 
 /* HEADERS MIGHT CAUSE ISSUES WITH TOP & LEFT MARGIN */
 /* TODO: colorful header tags */
-h1, h2, h3, h4, h5, h6{
-	border-bottom: 1px dashed var(--purple);
+h1, h2, h3, h4, h5, h6 
+{
+	border-bottom: 1px solid var(--main1);
 	/* border-bottom-right-radius: 5px; */
-	color: var(--purple);
+	color: var(--main1);
 	margin: 0rem;
 	margin-left: -5px;
 	padding: 10px;
 	width: 100%;
 }
 a {
-	color: var(--purple);
+	color: var(--main1);
 	border: 10px;
 }
 
@@ -235,32 +239,28 @@ h3 time{
 	margin-top: 0rem;
 	margin-bottom: 0rem;
 	padding: 1rem;
-	white-space: pre-wrap; /* pre doesn't wrap by default */
 	margin-left: 2rem;
 	margin-right: 2rem;
 	/*border: 1px solid var(--main1);*/
-	border-radius: 0rem;
 
 	/* Set wrapping for long code blocks */
-	white-space: pre;
-	word-break: break-all;
-	word-wrap: break-word;
-	overflow-x: auto;
+	white-space: pre; /* to wrap use pre-wrap */
+	overflow-x: scroll;
+	border-radius: 5px !important;
 }
 
 .content code {
 	/* enclosed by single backtick (`) */
-	padding: .2em .4em;
+	padding: 3px 3px;
 	margin: 0;
-	font-size: 1rem;
-	border-radius: 1px;
+	font-size: 13px;
+	border-radius: 5px;
 }
 .content pre code {
 	/* CODE triple  ```) */
 	margin: 0;
-	font-size: 0.8rem;
-	padding: 0;
-	overflow: hidden
+	font-size: 13px;
+	padding: 0px 0px;
 }
 
 /* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
@@ -271,7 +271,7 @@ div.textt > div.highlight > pre
 
 /* PUT $ IF IT'S SH BUT NOT SELECTABLE */
 code.language-sh span:not([style])::before{
-  content: "$ ";
+  content: "$ " !important;
 }
 /* PUT # IF IT'S SHELL INSTEAD OF SH BUT NOT SELECTABLE */
 code.language-shell span:not([style])::before{
@@ -291,8 +291,8 @@ code.language-shell span:not([style])::before{
 	margin: 0%;
 	padding-left:5%;
 	padding-right:5%;
-	/* background-color: #101010; */
-	/* color: #c5ebed; */
+	background: var(--bg1);
+	color: var(--fg1);
 	display: flex;
 
 	justify-content: space-between; /* ONE LEFT ONE RIGHT */
