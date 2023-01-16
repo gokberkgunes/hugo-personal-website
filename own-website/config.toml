@@ -25,25 +25,25 @@ pygmentsCodefences = true
 		url        = "https://github.com/gokberkgunes"
 		weight     = 3
 	[[menu.main]]
-		name       = "Search"
+		name       = "Searx"
 		identifier = "searx"
 		url        = "https://searx.berksen.net"
 		weight     = 4
-	[[menu.main]]
-		name       = "Reddit"
-		identifier = "libreddit"
-		url        = "https://libreddit.berksen.net"
-		weight     = 5
+	#[[menu.main]]
+	#	name       = "Reddit"
+	#	identifier = "libreddit"
+	#	url        = "https://libreddit.berksen.net"
+	#	weight     = 5
 	[[menu.main]]
 		name       = "Twitter"
 		identifier = "nitter"
 		url        = "https://nitter.berksen.net"
 		weight     = 6
-	[[menu.main]]
-		name       = "Jitsi"
-		identifier = "jitsi"
-		url        = "https://meet.berksen.net"
-		weight     = 7
+	#[[menu.main]]
+	#	name       = "Jitsi"
+	#	identifier = "jitsi"
+	#	url        = "https://meet.berksen.net"
+	#	weight     = 7
 	#[[menu.main]]
 	#	identifier = "about"
 	#	name       = "About"

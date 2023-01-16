@@ -287,10 +287,12 @@ h3 time{
  * https://codersblock.com/blog/using-css-to-control-text-selection/
  */
 div > pre.chroma {
+	border: 1px solid transparent;
 	-webkit-user-select: all;
 	user-select: all;
 }
 div > pre.chroma:focus {
+	border: 1px solid var(--main1);
 	animation: select 100ms step-end forwards;
 }
 @keyframes select {
@@ -304,7 +306,7 @@ div > pre.chroma:focus {
 /* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
 div.textt > div.highlight > pre
 {
- 	border-bottom: 1px solid var(--main2); 
+	border-bottom: 1px solid var(--main2); 
 	border-radius: 0px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -315,6 +317,15 @@ div.textb > div.highlight > pre
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
+div.shtop > div.highlight > pre
+{
+	border-bottom: 1px solid var(--main2); 
+	border-radius: 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+
 
 /* PUT $ IF IT'S SH BUT NOT SELECTABLE */
 code.language-sh span.line::before{

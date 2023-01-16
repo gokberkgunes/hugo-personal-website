@@ -1,28 +1,31 @@
 ---
-title: "Extract Patterns From Files and Texts"
+title: "Sed: Extract Patterns From Files and Texts"
 date: 2023-01-16T17:21:27+03:00
 draft: false
 ---
 
-In this page, extracting a pattern from a text using `sed` and `regex` will be
-shown. This process is very straightforward and users face this very frequently
-when they write shell scripts.
+In this article, extracting a pattern from a text using `sed` and `regex` will
+be shown. This process is very straightforward and users face this very
+frequently when they write shell scripts.
 
-Consider you have following text file,
+Consider you runthe following command, and you would like to get the card's name.
 
-```txt
-id 53, type PipeWire:Interface:Node
-    alsa.card = "1"
-    alsa.card_name = "SteelSeries Arctis 1 Wireless"
-    alsa.class = "generic"
-    alsa.device = "0"
-    alsa.driver_name = "snd_usb_audio"
-    ...
-  * object.path = "alsa:pcm:1:iec958:1:playback"
-  * object.serial = "11163"
-  * priority.driver = "1008"
-  * priority.session = "1008"
+```shtop
+wpctl inspect @DEFAULT_SINK@
 ```
+{{< highlight text "hl_lines=3" >}}
+>id 53, type PipeWire:Interface:Node
+>    alsa.card = "1"
+>    alsa.card_name = "SteelSeries Arctis 1 Wireless"
+>    alsa.class = "generic"
+>    alsa.device = "0"
+>    alsa.driver_name = "snd_usb_audio"
+>    ...
+>  * object.path = "alsa:pcm:1:iec958:1:playback"
+>  * object.serial = "11163"
+>  * priority.driver = "1008"
+>  * priority.session = "1008"
+{{< /highlight >}}
 
 This piece of text is actually output from Wireplumber's inspect command. Now,
 we want to extract what `alsa.card_name` is equal to. First let's generate the
