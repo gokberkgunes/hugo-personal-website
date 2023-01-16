@@ -1,16 +1,3 @@
-:root {
-	font-size: 14px;
-	font-family: "DejaVu Sans";
-	--bg1: #121212;
-	--bg2: #171717;
-	--bg3: #3a3a3a;
-	--fg1: #d6dbe5;
-	--fg2: #a9afab;
-
-	--main1: #B790C2;
-	--blue: #205070;
-
-}
 /* Good hugo theme css:
  * https://github.com/nishanths/cocoa-hugo-theme/blob/master/static/css/main.css
  * DEFINE THE SCROLLBAR
@@ -221,9 +208,10 @@ body {
 /* TODO: colorful header tags */
 h1, h2, h3, h4, h5, h6 
 {
-	border-bottom: 1px solid var(--main1);
-	/* border-bottom-right-radius: 5px; */
 	color: var(--main1);
+	border-bottom: 1px solid var(--main2);
+
+	/* border-bottom-right-radius: 5px; */
 	margin: 0rem;
 	margin-left: -5px;
 	padding: 10px;
@@ -256,23 +244,26 @@ h3 time{
 	/* Set wrapping for long code blocks */
 	white-space: pre; /* to wrap use pre-wrap */
 	overflow-x: scroll;
-	border-radius: 5px;
 }
 
 .content code {
 	/* enclosed by single backtick (`) */
-	padding: 3px 3px;
 	margin: 0;
 	font-size: 12px;
 	font-family: monospace;
+	padding: 3px 3px;
+	border-radius: 4px;
+
+	background-color: var(--bg3);
 }
 .content pre code {
 	/* CODE triple  ```) */
 	margin: 0;
 	line-height: 1;
-	font-size: 10px;
+	font-size: 12px;
 	font-family: monospace;
 	padding: 0px 0px;
+
 }
 
 /* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
@@ -291,11 +282,12 @@ div.textb > div.highlight > pre
 }
 
 /* PUT $ IF IT'S SH BUT NOT SELECTABLE */
-code.language-sh span:not([style])::before{
-  content: "$ " !important;
+code.language-sh span.line::before{
+  content: "$ "; 
 }
 /* PUT # IF IT'S SHELL INSTEAD OF SH BUT NOT SELECTABLE */
-code.language-shell span:not([style])::before{
+/* IF USING noClasses=true, code.language-shell span:not([style])::before{*/
+code.language-shell span.line::before{
   content: "# ";
 }
 
@@ -315,7 +307,6 @@ code.language-shell span:not([style])::before{
 	background: var(--bg1);
 	color: var(--fg1);
 	display: flex;
-
 	justify-content: space-between; /* ONE LEFT ONE RIGHT */
 	align-items: center; /* VERTICAL ALIGNMENT */
 
@@ -334,4 +325,3 @@ code.language-shell span:not([style])::before{
 .footer_frame img:hover {
 	opacity: .5;
 }
-

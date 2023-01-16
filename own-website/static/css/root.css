@@ -1,0 +1,16 @@
+:root {
+	font-size: 14px;
+	font-family: "DejaVu Sans";
+
+	/* Background colors */
+	--bg1: #121212;
+	--bg2: #171717;
+	--bg3: #252422;
+	/* Text colors */
+	--fg1: #E1D4B2;
+	--fg2: #a9afab;
+	/* Flavoring colors */
+	--main1: #B790C2;
+	--main2: #5B4157;
+	--blue: #205070;
+}
