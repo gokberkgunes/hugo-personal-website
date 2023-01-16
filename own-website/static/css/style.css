@@ -19,6 +19,9 @@ html {
 	background: var(--bg1);
 	line-height: 1.5;
 }
+ul {
+	overflow-x: scroll;
+}
 body::-webkit-scrollbar {
 	width: 0.5rem;
 }
@@ -157,6 +160,10 @@ body {
 	}
 }
 @media only screen and (max-width: 1080px) {
+
+	:root {
+		font-size: 12px;
+	}
 	.navBar {
 		top: 0;
 		position: sticky;
@@ -164,13 +171,15 @@ body {
 		background: #846E8A;
 		align-content: center;
 		text-align: center;
-		filter: opacity(0.7);
+		filter: opacity(1);
 	}
 	.navBar img {
 		display: none;
 	}
-	.navBar:hover {
-		filter: grayscale(0%) opacity(0.9);
+
+	.navBar .navMenu li {
+		font-size: 12px;
+		font-weight: bold;
 	}
 	.navMenu {
 		display: flex;
@@ -194,14 +203,14 @@ body {
 
 		padding-top: 2rem;
 		padding-bottom: 2rem;
-		padding-left: 4rem;
-		padding-right: 4rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
 
 		/* align-self: flex-start; */ /* retain its own height */
-		width: calc(80% - 5rem);
+		width: calc(90vw - 4rem);
 		height: 100%;
-		/* Extra 5 rem is for mobile browser URL bar */
-		min-height: calc(100vh - 6rem - 56px - 2px - 5rem);
+		/* Extra 5 rem is for mobile browser URL bar, (-2px for calc rounding?) */
+		min-height: calc(100vh - 6rem - 52px - 2px - 5rem);
 	}
 }
 
@@ -223,6 +232,7 @@ h1, h2, h3, h4, h5, h6
 a {
 	color: var(--main1);
 	border: 10px;
+	border-radius: 5px !important;
 }
 
 h3 time{
@@ -238,28 +248,30 @@ h3 time{
 	display: block;
 	margin-top: 0rem;
 	margin-bottom: 0rem;
-	padding: 1rem;
-	margin-left: 2rem;
-	margin-right: 2rem;
+	padding: 1vw;
+	margin-left: 1vw;
+	margin-right: 1vw;
 	/*border: 1px solid var(--main1);*/
 
 	/* Set wrapping for long code blocks */
 	white-space: pre; /* to wrap use pre-wrap */
 	overflow-x: scroll;
-	border-radius: 5px !important;
+	border-radius: 5px;
 }
 
 .content code {
 	/* enclosed by single backtick (`) */
 	padding: 3px 3px;
 	margin: 0;
-	font-size: 13px;
-	border-radius: 5px;
+	font-size: 12px;
+	font-family: monospace;
 }
 .content pre code {
 	/* CODE triple  ```) */
 	margin: 0;
-	font-size: 13px;
+	line-height: 1;
+	font-size: 10px;
+	font-family: monospace;
 	padding: 0px 0px;
 }
 
@@ -267,6 +279,15 @@ h3 time{
 div.textt > div.highlight > pre
 {
  	border-bottom: 1px solid var(--main1); 
+	border-radius: 0px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+div.textb > div.highlight > pre
+{
+	border-radius: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 /* PUT $ IF IT'S SH BUT NOT SELECTABLE */
