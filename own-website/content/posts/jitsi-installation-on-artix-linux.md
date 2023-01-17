@@ -1,36 +1,54 @@
 ---
 title: "Jitsi Installation on Artix Linux"
 date: 2022-09-28T01:40:39+03:00
+authors: "Gokberk Gunes"
+tags: ["self-hosting", "server"]
 draft: false
 ---
-This article will guide one to set up video conference website called Jitsi.
-Jitsi is an open-source and an ethical piece of software. It must be preferred
-to spyware programs like Zoom, Google Meet, Microsoft Teams and such proprietary
-alternatives. All of these malicious programs got popularized and enforced by
-people who has no idea about technology. Consequently, for the people with
-freedom and security in mind, Jitsi is the prime service to use and self-host.
-This guide will cover the self-hosting part, usage is piece of cake anyway.
-(The guide is adapted from Arch Linux' wiki page and Celogreek's guide.)
 
+This article will guide you through setting up server side of a video conference
+program called Jitsi on systemd-free GNU/Linux distributions. The installation
+will be done on bare metal, not through any vitalization. Some commands are
+given explicitly for Arch-based distributions and systems using runit as init,
+though the commands can be easily altered for other init systems.
 
-Below the one may find references, useful links to accompany this guide.
+## What is Jitsi?
+Jitsi is an open-source video conference software. It's similar to Zoom, Google
+Meet, Microsoft Teams, except for being self-hosted. Even though the self-hosting part
+generates a layer of complexion for the hosting party, the freedom and
+extensibility of Jitsi are indispensable.
+
+## Why did I write this guide?
+Typically, Jitsi and some other parties provide much easier ways to
+deploy Jitsi on a server. However, all of these ways require systemd, abstract
+the installation process, and limit the configurability. 
+
+**Note:** The guide is adapted from Arch Linux' wiki page, Celogreek's
+guide. Yet, it still was a hassle because of the compilations of the programs and et
+cetera.
+
+Below you may find references, useful links accompany this guide.
 - [Configuration files](https://github.com/jitsi/jitsi-meet/tree/master/doc/debian/)
 - [Arch wiki](https://wiki.archlinux.org/title/Jitsi-meet)
 - [Celogreek's guide](https://blog.celogeek.com/posts/linux/archlinux/2021-02-jitsi-meet-nighly-on-arch-linux/)
 
-Switch to root account, keep using root throughout the whole guide. (Use sudo
-or su preferably.)
+## Install Preparations
+
+Switch to the root account. You must keep using root account throughout the whole
+guide.\
+**Note:** If you do not have `doas`, you should replace it with `sudo`. Alternatively, you can directly call `su`.
 ```sh
 doas su
 ```
-Install required programs.
+
+Now, you need to install the required programs. These programs are either run-time
+or compile-time dependencies.
 ```shell
 pacman -S git gnupg nginx-mainline curl jdk11-openjdk maven npm unzip prosody
 ```
 
-
-Append two lines of code to set a local loopback.  The programs we are going to
-install will talk to each other with local loopback.
+Add the below piece of code to set a local loop back. This code will allow
+programs to talk to each other.
 ```txtt
 /etc/hosts
 ```
@@ -41,17 +59,22 @@ install will talk to each other with local loopback.
 
 ## Jicofo Installation
 
-### Cloning and Installing Jicofo
-Clone the repository from official repositories, then compile Jicofo.
+### Cloning and Installing
+In this section, you will obtain the source code from official repositories,
+compile the source and move them to an appropriate location.
+
+Clone the official repository.
 ```shell
 mkdir /srv/http/jitsi/sources && cd /srv/http/jitsi/sources
 git clone "https://github.com/jitsi/jicofo.git"
 cd jicofo
-mvn package -DskipTests -Dassembly.skipAssembly=false
 ```
 
- After compilation is done move the compiled files to your server's system
- folders.
+Compile the source code to executables.
+```shell
+mvn package -DskipTests -Dassembly.skipAssembly=false
+```
+Move the compiled files to the server's system folders.
 ```shell
 unzip jicofo/target/jicofo-*.zip -d /srv/http/jitsi/
 mv /srv/http/jitsi/jicofo-* /srv/http/jitsi/jicofo
@@ -59,16 +82,19 @@ rm /srv/http/jitsi/jicofo/jicofo.bat
 ```
 
 ### Creating and Modifying Configuration Files
+Creation of the configuration files for Jicofo and their setup will be done
+here. Beware that this part requires manual edits to the specified files.
 
-Move configuration files to system folders.
+Move the configuration files to a sensible location.
 ```shell
 mkdir -p /etc/jicofo/
 mv lib/logging.properties /etc/jicofo
 mv jicofo-selector/src/main/resources/reference.conf /etc/jicofo/jicofo.conf
 ```
 
-In configuration file of jicofo change below sections to your domain adress. If
-they are commented out with either **//** or **#** remove it.
+In the configuration file, you have to change the below sections to your domain
+address. If these lines are they are commented out with either **//** or **#**,
+remove these comment characters.
 ```txtt
 /etc/jicofo/jicofo.conf
 ```
@@ -85,23 +111,20 @@ xmpp {
     }
 ```
 
-
-Create a user and group for jicofo.
+Create a user and a group for jicofo.
 ```shell
 echo "g jitsi\nu jicofo -:jitsi - /var/lib/jicofo" > /usr/lib/sysusers.d/jicofo.conf
 sysusers
 ```
 
-In below file modify **JICOFO_HOSTNAME**, **JICOFO_AUTH_DOMAIN**,
-**JICOFO_AUTH_PASSWORD** with your information.
-
-Change **meet.berksen.net** to your domain adress and change password1 to your
-focus user's password. To generate a password, the one may use `openssl rand
--hex 16`.
+In below file modify `JICOFO_HOSTNAME`, `JICOFO_AUTH_DOMAIN`,
+`JICOFO_AUTH_PASSWORD` with your information. Change `meet.berksen.net` to your
+domain address and set password1. You may generate a randomized password with
+`openssl rand -hex 16`.
 ```txtt
 /etc/jicofo/config
 ```
-```txtb
+```shbot
 # Jitsi Conference Focus settings
 # sets the host name of the XMPP server
 export JICOFO_HOST=localhost
@@ -122,7 +145,7 @@ export JICOFO_AUTH_PASSWORD=password1
 export JICOFO_OPTS=""
 
 # adds java system props that are passed to jicofo (default are for home and
-# logging config file)
+# logging configuration file)
 export JAVA_SYS_PROPS="\
  -Dnet.java.sip.communicator.SC_HOME_DIR_LOCATION=/etc\
  -Dnet.java.sip.communicator.SC_HOME_DIR_NAME=jicofo\
@@ -133,40 +156,41 @@ export JAVA_SYS_PROPS="\
 "
 ```
 
-Create the communicator file. Change **meet.berksen.net** to your address.
+Create the communicator file. Modify adress **meet.berksen.net** below.
 ```shell
 echo "org.jitsi.jicofo.BRIDGE_MUC=JvbBrewery@internal.auth.meet.berksen.net" > /etc/jicofo/sip-communicator.properties
 ```
 
 ### Runit Script Generation
+There is a need to supervise, execute, log the jicofo. Here, a runit script
+will be created and activated to provide these needs.
 
-Create a runit script files for the jitsi-videobridge for logging and running.
+Create a file for the jicofo. This will do the logging and running jicofo.
 ```shell
 mkdir -p /etc/runit/sv/jicofo/log
 touch /etc/runit/sv/jicofo/log/run /etc/runit/sv/jicofo/run
 chmod +x /etc/runit/sv/jicofo/log/run /etc/runit/sv/jicofo/run
 ```
 
-Edit service script.
+Alter the run file as shown below.
 ```txtt
 /etc/runit/sv/jicofo/run
 ```
-```txtb
+```shbot
 #!/bin/sh
 exec 2>&1; set -e
 
-# Read config file whichsets other configuration files' locations.
+# Read configuration file which sets other configuration files' locations.
 . /etc/jicofo/config
 
 exec chpst -u jicofo:jitsi /srv/http/jitsi/jicofo/jicofo.sh --host=$JICOFO_HOST --domain=$JICOFO_HOSTNAME --user_name=$JICOFO_AUTH_USER --user_domain=$JICOFO_AUTH_DOMAIN $JICOFO_OPTS
 ```
 
-
-Edit logging script.
+Edit the logging script as following.
 ```txtt
 /etc/runit/sv/jicofo/log/run
 ```
-```txtb
+```shbot
 #!/bin/sh
 exec 2>&1; set -e
 
@@ -174,29 +198,40 @@ exec 2>&1; set -e
 
 exec svlogd -tt /var/log/jitsivid
 ```
-
-Start runit service.
+Start the runit service.
 ```shell
 ln -s /etc/runit/sv/jicofo /run/runit/service
 ```
 
-## Jitsi Videobridge Installation
-Clone the repository and compile jitsi-videobridge.
+## Jitsi-Videobridge Installation
+
+### Cloning and Installing
+At this point, the source code from official repositories will be downloaded.
+The source code will be compiled. Then, compiled files will be moved to an
+appropriate location.
+
+Clone the repository.
 ```shell
 cd /srv/http/jitsi/sources/
 git clone "https://github.com/jitsi/jitsi-videobridge.git"
 cd jitsi-videobridge
+```
+Compile jitsi-videobridge.
+```shell
 mvn package -DskipTests -Dassembly.skipAssembly=true install
 ```
-
-After compilation is done move the compiled files to your server's location.
+Move the compiled files to the server's system folders.
 ```shell
 unzip jvb/target/jitsi-videobridge-*.zip -d /srv/http/jitsi/
 mv /srv/http/jitsi/jitsi-videobridge-* /srv/http/jitsi/jitsi-videobridge
 rm /srv/http/jitsi/jitsi-videobridge/jvb.bat
 ```
+### Creating and Modifying Configuration Files
+Configuration files for jitsi-videobridge will be done here. Please note that
+there are parts you need to edit manually. Guidance is given on what and how
+to edit.
 
-Move java configuration file and then kernel setting file.
+Move the java configuration and kernel setting files to a better location.
 ```shell
 mkdir -p /etc/jitsi-videobridge/
 mv jvb/lib/logging.properties config/callstats-java-sdk.properties /etc/jitsi-videobridge
@@ -204,22 +239,23 @@ mkdir -p /etc/sysctl.d
 mv config/20-jvb-udp-buffers.conf /etc/sysctl.d
 ```
 
-Create a user and group for jitsi-videobridge.
+Create a user and a group for jitsi-videobridge.
 ```shell
 echo "g jitsi\nu jvb -:jitsi - /var/lib/jitsi-videobridge" > /usr/lib/sysusers.d/jitsi.conf
 sysusers
 ```
 
-Create config file and fill **JVB_HOSTNAME**. Change **meet.berksen.net**
-to your domain. Use `opensll rand -hex 16` for **JVB_SECRET**.
-
-Note that, config file should be empty at this point to have a working server.
-This file will be used for socket later on.
+Modify `JVB_HOSTNAME` to your domain; in other words alter `meet.berksen.net`
+reflecting your domain. Set `password2`. You may generate a randomized
+password with `opensll rand -hex 16`\
+**Note:** The configuration file could have been left empty at this point; the
+server would still be working. However, it will be needed if a web socket is
+used.
 
 ```txtt
 /etc/jitsi-videobridge/config
 ```
-```txtb
+```shbot
 # Jitsi Videobridge settings
 
 # sets the XMPP domain (default: none)
@@ -237,7 +273,7 @@ export JVB_SECRET=password2
 # extra options to pass to the JVB daemon
 export JVB_OPTS="--apis=,"
 
-# adds java system props that are passed to jvb (default are for home and logging config file)
+# adds java system props that are passed to jvb (default are for home and logging configuration file)
 export JAVA_SYS_PROPS="\
   -Dnet.java.sip.communicator.SC_HOME_DIR_LOCATION=/etc\
   -Dnet.java.sip.communicator.SC_HOME_DIR_NAME=jitsi-videobridge\
@@ -245,21 +281,20 @@ export JAVA_SYS_PROPS="\
   -Djava.util.logging.config.file=/etc/jitsi-videobridge/logging.properties\
   -Djava.util.prefs.userRoot=/var/lib/jitsi-videobridge\
 "
-# Below config belongs to JAVA_SYS_PROPS, but causes jitsi to not work.
+# Below configuration belongs to JAVA_SYS_PROPS, but causes jitsi to not work.
 #  -Dconfig.file=/etc/jitsi-videobridge/jvb.conf\
 ```
 
-Create communicator file. Change **shard.DOMAIN**, **shard.PASSWORD** as jvb password
-which is set on config file above as **JVB_SECRET**, lastly modify
-**shard.MUC_JIDS**. **Shard.MUC_NICKNAME** will be generated with `uuidgen`
-command.
+Create the communicator file. Change `shard.DOMAIN` to your domain. Set
+`password2` as what you set earlier. Modify domain part `shard.MUC_JIDS` to your
+domain. Generate a `Shard.MUC_NICKNAME` with `uuidgen` command.
 ```txtt
 /etc/jitsi-videobridge/sip-communicator.properties
 ```
 ```txtb
 org.ice4j.ice.harvest.DISABLE_AWS_HARVESTER=true
 org.ice4j.ice.harvest.STUN_MAPPING_HARVESTER_ADDRESSES=meet-jit-si-turnrelay.jitsi.net:443
-org.jitsi.videobridge.ENABLE_STATISTICS=true
+org.jitsi.videobridge.ENABLE_STATISTICS=false
 org.jitsi.videobridge.STATISTICS_TRANSPORT=muc
 org.jitsi.videobridge.xmpp.user.shard.HOSTNAME=localhost
 org.jitsi.videobridge.xmpp.user.shard.DOMAIN=auth.meet.berksen.net
@@ -269,36 +304,37 @@ org.jitsi.videobridge.xmpp.user.shard.MUC_JIDS=JvbBrewery@internal.auth.meet.ber
 org.jitsi.videobridge.xmpp.user.shard.MUC_NICKNAME=uuid
 ```
 
-
 ### Runit Script Generation
+There is a need to supervise, execute, log the jitsi-videobridge. Here, a runit
+script will be created and activated to provide these needs.
 
-Create a runit script for the jitsi-videobridge.
+Create a file for the jitsi-videobridge. This will do the logging and running jitsi-videobridge.
 ```shell
 mkdir -p /etc/runit/sv/jitsi-videobridge/log
 touch /etc/runit/sv/jitsi-videobridge/log/run /etc/runit/sv/jitsi-videobridge/run
 chmod +x /etc/runit/sv/jitsi-videobridge/log/run /etc/runit/sv/jitsi-videobridge/run
 ```
 
-Edit service script.
+Alter the run file as shown below.
 ```txtt
 /etc/runit/sv/jitsi-videobridge/run
 ```
-```txtb
+```shbot
 #!/bin/sh
 exec 2>&1; set -e
 
 
-# Read config file whichsets other configuration files' locations.
+# Read configuration file which sets other configuration files' locations.
 . /etc/jitsi-videobridge/config
 
 exec chpst -u jvb:jitsi /srv/http/jitsi/jitsi-videobridge/jvb.sh $JVB_OPTS
 ```
 
-Edit logging script.
+Edit the logging script as following.
 ```txtt
 /etc/runit/sv/jitsi-videobridge/log/run
 ```
-```txtb
+```shbot
 #!/bin/sh
 exec 2>&1; set -e
 
@@ -307,38 +343,50 @@ exec 2>&1; set -e
 exec svlogd -tt /var/log/jitsivid
 ```
 
-Start runit service.
+Start the runit service.
 ```shell
 ln -s /etc/runit/sv/jitsi-videobridge /run/runit/service
 ```
 
 ## Jitsi-Meet Installation
+### Cloning and Installing
+In this section, the source code from official repositories will be downloaded.
+The source code will be compiled. Then, compiled files will be moved to an
+appropriate location.
 
-Clone the repository and compile jicofo. Make command for jitsi-meet will not
-work cause of ram limitations in java settings. Then one has to change it with
-*NODE_OPTIONS* environmental variable as shown below.
+Clone the repository.
 ```shell
 mkdir -p /srv/http/jitsi/; cd /srv/http/jitsi
 git clone "https://github.com/jitsi/jitsi-meet.git"
 cd jitsi-meet/
+```
+
+Compile jicofo.\
+**Note:** `make` command for jitsi-meet will not work cause of ram limitations
+in java settings. That's why you are exporting `NODE_OPTIONS` environmental
+variable as shown below.
+```shell
 export NODE_OPTIONS="--max-old-space-size=8192"
 npm install
 make
 ```
 
-After compilation is done symlink the compiled files to reachable location.
-Note that there used to be configuration file called **logging_config.js**, it is
-now merged into **config.js**. In the future **interface_config.js** is going
-to merge into **config.js** as well.
+### Creating and Modifying Configuration Files
+Configuration files for jitsi-meet will be done here. Please note that there
+are parts you need to edit manually. Guidance is given on what and how to
+edit.
 
+Move the compiled files to the server's system folders.\
+**Note:** There used to be a configuration file called **logging_config.js** but
+it is now merged into **config.js**. The other file, **interface_config.js**,
+is also planned to be merged into **config.js** in the future.
 ```shell
 mkdir -p /etc/jitsi-meet
 ln -sf /srv/http/jitsi/jitsi-meet/interface_config.js /etc/jitsi-meet/
 ln -sf /srv/http/jitsi/jitsi-meet/config.js /etc/jitsi-meet/
 ```
 
-- Edit main configuration file, find below options and alter them for your own
-  domain.
+Edit the main configuration file. Change below options for your own domain.
 ```txtt
 /etc/jitsi-meet/config.js
 ```
@@ -362,26 +410,32 @@ var config = {
 ```
 
 ## Prosody Configuration
+Prosody is found in repositories as in pre-compiled form. Therefore, there is
+only configuration is required for it.
 
-Make a config folder and config file and include config file to settings.
+### Creating and Modifying Configuration Files
+Make a configuration folder. Download configuration file from jitsi-meet
+repository. Include the configuration file to prosody's settings.
 ```shell
 mkdir -p /etc/prosody/conf.d
 curl "https://raw.githubusercontent.com/jitsi/jitsi-meet/master/doc/debian/jitsi-meet-prosody/prosody.cfg.lua-jvb.example" > /etc/prosody/conf.d/jitsi.cfg.lua
 echo "Include \"conf.d/*.cfg.lua\"" >> /etc/prosody/prosody.cfg.lua
 ```
-
-Change domain names to your domain as described below.
+Change domain names to your domain as described below. In this file, you should
+replace all domain names with yours. (If desired, all `jitmeet.example.com`
+occurrences can be changed to your domain too.)
 ```txtt
 /etc/prosody/conf.d/jitsi.cfg.lua
 ```
 ```txtb
-Replace all:
-
+Replace all occurances:
     "jitmeet.example.com" with "meet.berksen.net"
-    "focusUser@auth.meet.berksen.net" with "focus@auth.meet.berksen.net"
+    "focusUser@auth.jitmeet.example.com" with "focus@auth.meet.berksen.net"
+Vim users can run following command:
+:%s/jitmeet\.example\.com/meet\.berksen\.net/g
 ```
 
-Then adjust the configuration at your needs.
+Set plugin paths as shown below.
 ```txtt
 /etc/prosody/conf.d/jitsi.cfg.lua
 ```
@@ -389,21 +443,22 @@ Then adjust the configuration at your needs.
 plugin_paths = { "/srv/http/jitsi/jitsi-meet/resources/prosody-plugins/" }
 ```
 
-
-Generate certificates. (Must have CNAME records by DNS). There are going to be
-some warnings about certificate for hosts. These are not important since these
-are all virtual hosts. Only meet.berksen.net and auth.meet.berksen.net are
-important.
+### Certificate Generation
+In order to generate certificates, you muust have CNAME records by your domain
+provider. There are going to be some warnings about certificate for hosts. The
+warnings are not important since all warnings are about virtual hosts, which
+you do not need certificates for. Only meet.berksen.net and
+auth.meet.berksen.net are important.
 ```sh
 certbot --nginx certonly -d meet.berksen.net
 certbot --nginx certonly -d auth.meet.berksen.net
 ```
-Create a letsencrypt renewal hook. This way, whenever one renews letsencrypt
+Create a letsencrypt renewal hook. This way, whenever you renew the letsencrypt
 certificates, prosody certificates will automatically imported.
 ```txtt
 /etc/letsencrypt/renewal-hooks/deploy/prosody
 ```
-```txtb
+```shbot
 #!/usr/bin/sh
 /usr/bin/prosodyctl --root cert import /etc/letsencrypt/live
 ```
@@ -411,18 +466,17 @@ certificates, prosody certificates will automatically imported.
 Make the hook file executable.
 ```sh
 chmod +x /etc/letsencrypt/renewal-hooks/deploy/prosody
-
 ```
 
-- Config written to /var/lib/prosody/meet.berksen.net.cnf
-- Certificate written to /var/lib/prosody/meet.berksen.net.crt
+After running `certbot`, you will get configuration and certificate files.
+- Configuration is written to `/var/lib/prosody/meet.berksen.net.cnf`,
+- Certificate is written to `/var/lib/prosody/meet.berksen.net.crt`.
 
-Now set keys and certificates, add these below.
+Now change keys and certificates, as indicated above.
 ```txtt
 /etc/prosody/conf.d/jitsi.cfg.lua
 ```
 ```txtb
-
 VirtualHost "meet.berksen.net"
 	...
 	ssl = {
@@ -441,18 +495,19 @@ VirtualHost "auth.meet.berksen.net"
 ```
 
 ## Nginx & Jitsi Connection
-
-Make a config folder and config file as **jitsi.conf**.
+Make a configuration folder and a configuration file as **jitsi.conf**.
 ```sh
 mkdir -p /etc/nginx/enabled-sites
 mkdir -p /etc/nginx/sites
 curl "https://github.com/jitsi/jitsi-meet/blob/master/doc/debian/jitsi-meet/jitsi-meet.example" > /etc/nginx/sites
 mv /etc/nginx/sites/jitsi-meet.example /etc/nginx/sites/jitsi.conf
+```
+Activate the configuration file in nginx by symlinking it.
+``` sh
 ln -sf /etc/nginx/sites/jitsi.conf /etc/nginx/enabled-sites
 ```
-
-Modify nginx's configuration file to include all the configuration files
-located in sites folder. This include statement should go in to the http part.
+Modify nginx' configuration file to include all the configuration files located
+in enabled-sites folder. The include statement must go inside the http part.
 ```txtt
 /etc/nginx/nginx.conf
 ```
@@ -469,7 +524,7 @@ http {
 ```
 
 Alter **jitsi.conf** to include your domain names, SSL certificates,
-  installation file paths.
+installation file paths.
 ```txtt
 /etc/nginx/enabled-sites/jitsi.conf
 ```
@@ -514,17 +569,17 @@ server {
 	}
 ```
 
-Check if any problem exists with the nginx's configuration file.
+Run the following command to check syntax errors in nginx configuration file.
 ```sh
 nginx -t
 ```
-## Register Users
 
-Register for jicofo. (Check password1 at /etc/jicofo/config)
+## Register Users
+Register for jicofo. You may check your password1 in `/etc/jicofo/config`.
 ```sh
 prosodyctl register focus auth.meet.berksen.net password1
 ```
-Register for jitsi-videobridge. (Check password2 at /etc/jitsi-videobridge/config)
+Register for jitsi-videobridge. You may check your password2 at `/etc/jitsi-videobridge/config`.
 ```sh
 prosodyctl register jvb auth.meet.berksen.net password2
 ```
@@ -532,7 +587,6 @@ Subscribe to mod_roster_command.
 ```sh
 prosodyctl mod_roster_command subscribe focus.meet.berksen.net focus@auth.meet.berksen.net
 ```
-
 Restart runit services.
 ```sh
 sv restart prosody
@@ -541,16 +595,13 @@ sv restart jicofo
 sv restart nginx
 ```
 
-**NOTE**: To check current jicofo users refer to https://github.com/jitsi/jitsi-meet/issues/5625
 
+## Websocket Activations
 
+This part of the installation is done in order to decrease server's load.
 
-## Activate Websockets
-
-This part of the installation is done so that the server's load could decrease
-and the Jitsi process get faster.
-
- Activate websocket on jitsi-meet side.
+### Jitsi-Meet Websocket Activation
+Activate websocket on jitsi-meet side.
  ```txtt
 /etc/jitsi-meet/config.js
 ```
@@ -565,7 +616,8 @@ var config = {
 }
 ```
 
- Activate websocket module on prosody configuration file.
+### Prosody Websocket Activation
+Activate the websocket module on prosody configuration file.
  ```txtt
 /etc/prosody/conf.d/jitsi.cfg.lua
 ```
@@ -583,12 +635,13 @@ VirtualHost "meet.berksen.net"
 	}
 ```
 
-Copy the reference configuration file to the system.
+### Jitsi-Videobridge Websocket Activation
+Copy the reference jitsi-videobridge configuration file to your system.
 ```sh
 cp /srv/http/jitsi/sources/jitsi-videobridge/jvb/src/main/resources/reference.conf /etc/jitsi-videobridge/
 ```
 
-Set sockets on jitsi-videobridge.
+Set sockets on the jitsi-videobridge.
 ```txtt
 /etc/jitsi-videobridge/reference.conf
 ```
@@ -615,13 +668,13 @@ videobridge {
 }
 ```
 
-Add socket info to jitsi-videobridge config file back.
+Add socket info back to the jitsi-videobridge configuration file.
 ```txtt
 /etc/jitsi-videobridge/config
 ```
-```txtb
+```shbot
 ...
-# adds java system props that are passed to jvb (default are for home and logging config file)
+# adds java system props that are passed to jvb (default are for home and logging configuration file)
 export JAVA_SYS_PROPS="\
   -Dnet.java.sip.communicator.SC_HOME_DIR_LOCATION=/etc\
   -Dnet.java.sip.communicator.SC_HOME_DIR_NAME=jitsi-videobridge\
@@ -641,9 +694,11 @@ sv restart jitsi-videobridge
 ## Disallow Room Creations
 
 The rationale is to stop random people to create and use rooms, this server is
-not free to use.
+not free to use. When there is no administrator is online, other users has to
+wait for an administrator. These users cannot create or use a room without an
+administrator.
 
-- Add below to jicofo's sip communicator file, use correct domain name.
+Add below to jicofo's sip communicator file, use correct domain name.
 ```txtt
 /etc/jicofo/sip-communicator.properties
 ```
@@ -651,7 +706,7 @@ not free to use.
 org.jitsi.jicofo.auth.URL=XMPP:meet.berksen.net
 ```
 
-Alter jitsi-meet's configuration file for your domain names.
+Alter the jitsi-meet's configuration file to reflect your domain name.
 ```txtt
 /etc/jitsi-meet/config.js
 ```
@@ -697,10 +752,14 @@ VirtualHost "guest.meet.berksen.net"
     }
     ...
 ```
-Now, register users as many as required.
+Now, register users as many as required. The `user_name` and `user_password`
+will be used to log into the server.
 ```sh
-prosodyctl register user_name meet.berksen.net password_here
+prosodyctl register user_name meet.berksen.net user_password
 ```
+
+**NOTE**: If you need to check the current prosody users and their passwords,
+go to `/var/lib/prosody`.
 
 Restart services.
 ```sh

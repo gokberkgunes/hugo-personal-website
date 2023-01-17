@@ -41,6 +41,9 @@ body {
 ul {
 	overflow-x: auto;
 }
+p {
+	text-align: justify;
+}
 /* Engineering to center, adding a padding works but enlarges the area.*/
 /* 
 /*main {
@@ -92,7 +95,7 @@ ul {
 
 .navBar .navMenu li a:link {
 	display: block; /* so that whole block is clickable */
-	color: #b9b9b9;
+	color: var(--fg1);
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
@@ -138,6 +141,7 @@ ul {
 		filter: grayscale(0%) opacity(0.9);
 	}
 	.narBar img {
+
 		display: block;
 	}
 	.navItem:hover {
@@ -156,7 +160,7 @@ ul {
 		padding-left: 4rem;
 		padding-right: 4rem;
 		/* align-self: flex-start; */ /* retain its own height */
-		width: min(50rem, calc(100% - 12rem - 10rem));
+		width: min(50vw, calc(100% - 12rem - 10rem));
 		height: 100%;
 	}
 }
@@ -169,13 +173,12 @@ ul {
 		top: 0;
 		position: sticky;
 		width: 100vw;
-		background: #846E8A;
+		background: var(--bg1);
 		align-content: center;
 		text-align: center;
-		filter: opacity(1);
 	}
 	.navBar img {
-		display: none;
+		display: block;
 	}
 
 	.navBar .navMenu li {
@@ -220,25 +223,119 @@ ul {
 
 /* HEADERS MIGHT CAUSE ISSUES WITH TOP & LEFT MARGIN */
 /* TODO: colorful header tags */
-h1, h2, h3, h4, h5, h6 
-{
-	color: var(--main1);
-	border-bottom: 1px solid var(--main2);
+h1, h2 {
+	/*
+	border-bottom: 2px solid var(--main2);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	*/
+	margin: 0px;
 
-	/* border-bottom-right-radius: 5px; */
-	margin: 0rem;
-	margin-left: -5px;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 2px;
+	margin-bottom: 5px;
 	width: 100%;
 }
-a {
-	color: var(--main1);
-	border: 10px;
-	border-radius: 5px !important;
+h1 { color: var(--orange);  }
+h2 { color: var(--green);   }
+h3 { color: var(--blue);    }
+h4 { color: var(--cyan);    }
+h5 { color: var(--red);     }
+h6 { color: var(--purple2); }
+a  { color: var(--cyan);    }
+
+h3, h4, h5, h6
+{
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 0px;
+	width: 100%;
+
 }
 
-h3 time{
-	font-size: 10px;
+/* *----------------------------------------------------------------------*
+   |                         SINGLE HEADER RULES                          |
+   *----------------------------------------------------------------------* */
+header.single
+{
+	border-bottom: 2px solid var(--fg1);
+	border-radius: 0px;
+}
+h1.single
+{
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	border-bottom: 0px;
+	padding: 0px;
+}
+a[id^='tag'] {
+	text-decoration: none;
+	padding: 0.2rem 0.5rem;
+
+	color: var(--fg1);
+	cursor: pointer;
+
+	background-color: #248AAA;
+
+	user-select: none;
+	-webkit-user-select: none;
+}
+p.single
+{
+	text-align: center;
+	user-select: none;
+	-webkit-user-select: none;
+}
+/*****************************************************************************/
+/* *----------------------------------------------------------------------*
+   |                          TABLE OF CONTENTS                           |
+   *----------------------------------------------------------------------* */
+nav#TableOfContents
+{
+	border-bottom: 2px solid var(--fg1);
+	border-radius: 0px;
+	margin-bottom: 2vh;
+}
+/*****************************************************************************/
+h1.posts
+{
+	text-transform: uppercase;
+	text-align: center;
+	/* display: inline; */
+	border-bottom: 2px solid var(--main2);
+	border-radius: 0px;
+	padding: 0px;
+}
+
+article.posts
+{
+	display: flex;
+	flex-direction: row;
+	flex-shrink: 0; /* Stop wrapping. */
+}
+article.posts > h3.posts
+{
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+	border-bottom: 0px;
+	padding-bottom: 10px;
+}
+article.posts > div.posts_tags {
+	flex-shrink: 0; /* Stop wrapping. */
+	width: 30%;
+}
+article.posts > div.divider {
+	flex-shrink: 0; /* Stop wrapping. */
+}
+article.posts > time.posts
+{
+	flex-grow: 0;
+	text-align: right;
+	width: 25%;
+	flex-shrink: 0; /* Stop wrapping. */
+
 }
 
 
@@ -306,7 +403,7 @@ div > pre.chroma:focus {
 /* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
 div.textt > div.highlight > pre
 {
-	border-bottom: 1px solid var(--main2); 
+	border-bottom: 1px solid var(--fg1); 
 	border-radius: 0px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -319,17 +416,26 @@ div.textb > div.highlight > pre
 }
 div.shtop > div.highlight > pre
 {
-	border-bottom: 1px solid var(--main2); 
+	border-bottom: 1px solid var(--fg1); 
 	border-radius: 0px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
 }
-
+div.shbot > div.highlight > pre
+{
+	border-radius: 0px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
 
 
 /* PUT $ IF IT'S SH BUT NOT SELECTABLE */
 code.language-sh span.line::before{
   content: "$ "; 
+}
+div.shbot > div.highlight > pre > code.language-sh > span.line::before 
+{
+	content:"";
 }
 /* PUT # IF IT'S SHELL INSTEAD OF SH BUT NOT SELECTABLE */
 /* IF USING noClasses=true, code.language-shell span:not([style])::before{*/

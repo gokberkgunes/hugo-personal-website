@@ -1,0 +1,8 @@
+<!-- https://gohugo.io/templates/render-hooks/#render-hooks-for-code-blocks -->
+<!-- gg: txtb will fallback to text highlighter, but will have covering div to
+target it with CSS -->
+
+{{ $class := .Attributes.class | default ""    }}
+{{ $lang  := .Attributes.lang  | default .Type }}
+
+<div class="shbot">{{ highlight .Inner "sh" }}</div>

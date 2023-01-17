@@ -1,8 +1,27 @@
 {{ partial "header.html" . }}
 
-<h1>{{ .Title }}</h1>
+<header class="single">
+	<h1 class="single">
+		<!-- <a href="{{ .RelPermalink }}">{{ .Title }}</a> -->
+		{{ .Title }}
+	</h1>
+	<p class="single">
+		{{ partial "authors.html" .}}
+		&nbsp; &mdash; &nbsp;
+		{{ partial "tags.html" .}}
+		<time>
+			&nbsp; &mdash; &nbsp;
+			{{ .Date.Format "January 2, 2006" }}
+		</time>
+	</p>
+</header>
+<article>
+<h2 class=toc> Table of Contents </h2>
+{{ .TableOfContents }}
 
 {{ .Content }}
+</article>
+
 <!-- {{ $content := .Content }}
 {{ $content = replaceRE `<a href="(https?://.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}
 {{ $content = replaceRE `<a href="(mailto:.+)">` `<a href="$1" target="_blank">` $content | safeHTML }}

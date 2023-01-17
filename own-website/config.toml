@@ -1,10 +1,12 @@
 baseURL = ""
 title = "Gokberk Gunes"
-#theme = "starter"
+languageCode = 'en-us'
 pygmentsUseClasses = true
 pygmentsCodefences = true
 
-[menu]
+[params]
+	author = "Gokberk Gunes"
+
 	[[menu.main]]
 		identifier = "home"
 		name       = "Home"
@@ -98,6 +100,7 @@ pygmentsCodefences = true
 			unsafe = false
 			xhtml = false
 	[markup.tableOfContents]
-		endLevel = 2
+		endLevel = 3
 		ordered = false
-		startLevel = 1
+		startLevel = 2
+
