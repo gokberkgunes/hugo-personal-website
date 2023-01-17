@@ -132,7 +132,7 @@ p {
 
 		margin: 2rem;
 		/* 100 window height - 4rem? */
-		height: calc(100vh - 40px - 4rem);
+		/* height: calc(100 - 40px - 4rem); BUG ON FULL SCREEN */
 		transition: all .5s ease;
 	}
 	.navBar:hover {
