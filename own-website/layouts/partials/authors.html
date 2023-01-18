@@ -22,4 +22,6 @@ Ref. https://discourse.gohugo.io/t/how-to-check-if-a-variable-is-string-or-array
 			{{ if lt $k (sub $tagsLen 1) }} &middot; {{ end }}
 		{{ end }}
 	{{ end }}
+{{ else }}
+	<a id="authors">{{ .Site.Params.author }}</a>
 {{ end }}

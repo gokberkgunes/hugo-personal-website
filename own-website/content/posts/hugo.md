@@ -1,6 +1,6 @@
 ---
 title: "Starting out with Hugo"
-tags: ["server", "selfhost"]
+tags: ["self-hosting", "hugo"]
 date: 2020-09-03T17:27:59+07:00
 ---
 1. Download hugo, using pacman in this example. Check official website for

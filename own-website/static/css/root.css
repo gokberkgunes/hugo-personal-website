@@ -9,16 +9,25 @@
 	--bg4: #303030;
 	/* Text colors */
 	--fg1: #E1D4B2;
-	--fg2: #a9afab;
+	--fg2: #c5ebed;
 	/* Flavoring colors */
 	--main1: #B790C2;
 	--main2: #5B4157;
-	--blue: #205070;
 
-	--orange: #ff8800;
-	--green: #0ecc6e;
-	--blue: #4d8cfe;
-	--cyan: #4289a1;
-	--red: #e13504;
-	--purple2: #b891c3;
+        --red:      #e13504;
+        --red2:     #f24451;
+        --green:    #0ecc6e;
+        --green2:   #59f87d;
+        --yellow:   #fdd401;
+        --yellow2:  #fdef28;
+        --blue:     #4d8cfe;
+        --blue2:    #6699ff;
+        --cyan:     #4289a1;
+        --cyan2:    #3b90ad;
+        --purple:   #975ea7;
+        --purple2:  #b891c3;
+        --orange:   #ff8800;
+        --orange2:  #fe8019;
+        --gray:     #808080;
+        --gray2:    #a0b0b0;
 }

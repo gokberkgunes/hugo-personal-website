@@ -1,14 +1,19 @@
 ---
 title: "Sed: Extract Patterns From Files and Texts"
 date: 2023-01-16T17:21:27+03:00
+authors: ["Gokberk Gunes", ]
+tags: ["scripting",]
 draft: false
 ---
 
-In this article, extracting a pattern from a text using `sed` and `regex` will
-be shown. This process is very straightforward and users face this very
-frequently when they write shell scripts.
+In this article, extracting a pattern from a text file and from another output
+will be demonstrated. In order to do this we will use `sed` though this is not
+the only approach to this problem. The importance of this problem is that users
+face with similar text manipulation very frequently especially when they write
+shell scripts.
 
-Consider you runthe following command, and you would like to get the card's name.
+## Getting a Synthetic Data
+Consider you run the following command, and you would like to get the card's name.
 
 ```shtop
 wpctl inspect @DEFAULT_SINK@
@@ -27,8 +32,10 @@ wpctl inspect @DEFAULT_SINK@
 >  * priority.session = "1008"
 {{< /highlight >}}
 
-This piece of text is actually output from Wireplumber's inspect command. Now,
-we want to extract what `alsa.card_name` is equal to. First let's generate the
+### Turning Selected Line to Regex
+This piece of text is actually the output of Wireplumber's inspect
+command on my machine with some truncated parts. Now, suppose that we want to
+extract what `alsa.card_name` is equal to. First, we need to  generate the
 regex equivalent that exact line.
 
 ```text
@@ -41,21 +48,32 @@ as `\(.*\)`, here backslashes and braces group whatever inside them dot star
 will match any length of any character. Lastly, we will add closing quote to
 the pattern.
 
-This is what we have now,
+This is the regex equivalent of the line we selected.
 ```txt
 \s*alsa\.card_name = "\(.*\)"
 ```
-Only thing left is to call sed command. We are passing `-n` to suppress
+### Extracting the Regex Line
+Only thing left is to call `sed` command. We are passing `-n` to suppress
 printing of the non-matching lines. `s/` at start will substitute our matching
 pattern with `\1` which refers to first group. `/p` at the end will print the
 matching line for us.
 
-Below application of the command for a piped output, 
-```sh
-other_command | sed -n 's/\s*alsa\.card_name = "\(.*\)"/\1/p'
-```
-Here is the one for applying the command for a file,
+## Getting the Desired Pattern
+The most common ways to extract patters are from a file and from another
+commands output. Both are the extractions with `sed` are very straightforward
+to apply.
+### Extract Pattern From a File
+Here we directly call `sed` to find desired regex pattern from a file called
+**file.txt**.
 ```sh
 sed -n 's/\s*alsa\.card_name = "\(.*\)"/\1/p' file.txt
 ```
+
+### Extract Pattern From Pipe
+Below, we are extracting the output of some other command called `program`. In
+order to do this, we pipe the output to `sed` with `|` symbol.
+```sh
+program | sed -n 's/\s*alsa\.card_name = "\(.*\)"/\1/p'
+```
+
 

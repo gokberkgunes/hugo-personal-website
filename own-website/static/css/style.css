@@ -223,7 +223,7 @@ p {
 
 /* HEADERS MIGHT CAUSE ISSUES WITH TOP & LEFT MARGIN */
 /* TODO: colorful header tags */
-h1, h2 {
+h2 {
 	/*
 	border-bottom: 2px solid var(--main2);
 	border-bottom-left-radius: 5px;
@@ -236,48 +236,46 @@ h1, h2 {
 	margin-bottom: 5px;
 	width: 100%;
 }
-h1 { color: var(--orange);  }
-h2 { color: var(--green);   }
-h3 { color: var(--blue);    }
-h4 { color: var(--cyan);    }
-h5 { color: var(--red);     }
-h6 { color: var(--purple2); }
-a  { color: var(--cyan);    }
-
-h3, h4, h5, h6
-{
-	margin: 0px;
-	padding-top: 10px;
-	padding-bottom: 0px;
-	width: 100%;
-
-}
-
-/* *----------------------------------------------------------------------*
-   |                         SINGLE HEADER RULES                          |
-   *----------------------------------------------------------------------* */
-header.single
-{
-	border-bottom: 2px solid var(--fg1);
-	border-radius: 0px;
-}
-h1.single
-{
+h1 {
+	color: var(--orange); 
 	text-decoration: none;
 	text-transform: uppercase;
 	text-align: center;
 	border-bottom: 0px;
 	padding: 0px;
+	margin: 0px;
+}
+h2 { color: var(--green);   }
+h3 { color: var(--blue);    }
+h4 { color: var(--cyan);    }
+h5 { color: var(--red);     }
+h6 { color: var(--purple2); }
+a  { color: var(--cyan2);    }
+
+h3, h4, h5, h6 {
+	margin: 0px;
+	padding-top: 10px;
+	padding-bottom: 0px;
+	width: 100%;
+}
+
+/* *----------------------------------------------------------------------*
+   |                         SINGLE HEADER RULES                          |
+   *----------------------------------------------------------------------* */
+header.single {
+	border-bottom: 2px solid var(--fg1);
+	border-radius: 0px;
+}
+h1.single {
+	padding-top: 1rem;
 }
 a[id^='tag'] {
 	text-decoration: none;
 	padding: 0.2rem 0.5rem;
 
 	color: var(--fg1);
+	background-color: var(--cyan2);
 	cursor: pointer;
-
-	background-color: #248AAA;
-
 	user-select: none;
 	-webkit-user-select: none;
 }
@@ -293,7 +291,7 @@ p.single
    *----------------------------------------------------------------------* */
 nav#TableOfContents
 {
-	border-bottom: 2px solid var(--fg1);
+	border-bottom: 1px solid var(--fg1);
 	border-radius: 0px;
 	margin-bottom: 2vh;
 }
@@ -303,9 +301,11 @@ h1.posts
 	text-transform: uppercase;
 	text-align: center;
 	/* display: inline; */
-	border-bottom: 2px solid var(--main2);
+	border-bottom: 2px solid var(--orange);
 	border-radius: 0px;
 	padding: 0px;
+	margin-bottom: 2rem;
+	padding-bottom: 1rem;
 }
 
 article.posts
