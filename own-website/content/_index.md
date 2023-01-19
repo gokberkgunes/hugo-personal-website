@@ -18,4 +18,3 @@ engine. They can be found on the navigation bar in this website.
 - Documentation in Latex and Mardown,
 - For the website frontend, [Hugo](https://gohugo.io) with a custom CSS and
   bunch of custom shortcodes.
-- For the website backend, nothing.
