@@ -120,7 +120,7 @@ p {
 }
 
 /* Large screen navigation frame */
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 720px) {
 	.navBar {
 		top: 0;
 		position: sticky;
@@ -132,7 +132,7 @@ p {
 
 		margin: 2rem;
 		/* 100 window height - 4rem? */
-		/* height: calc(100 - 40px - 4rem); BUG ON FULL SCREEN */
+		height: calc(100vh - 40px - 4rem);
 		transition: all .5s ease;
 	}
 	.navBar:hover {
@@ -164,8 +164,7 @@ p {
 		height: 100%;
 	}
 }
-@media only screen and (max-width: 1080px) {
-
+@media only screen and (max-width: 719px) {
 	:root {
 		font-size: 12px;
 	}
