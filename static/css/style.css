@@ -269,8 +269,9 @@ h1.single {
 	padding-top: 1rem;
 }
 a[id^='tag'] {
+	display: inline-block;
 	text-decoration: none;
-	padding: 0.2rem 0.5rem;
+	padding: 0.1rem 0.3rem;
 
 	color: var(--fg1);
 	background-color: var(--cyan2);
@@ -312,6 +313,7 @@ article.posts
 	display: flex;
 	flex-direction: row;
 	flex-shrink: 0; /* Stop wrapping. */
+	justify-content: center;
 }
 article.posts > h3.posts
 {
@@ -320,19 +322,28 @@ article.posts > h3.posts
 	margin: 0px;
 	border-bottom: 0px;
 	padding-bottom: 10px;
+	flex-grow: 1;
+	text-align: left;
 }
 article.posts > div.posts_tags {
 	flex-shrink: 0; /* Stop wrapping. */
-	width: 30%;
+	text-align: center;
+}
+article.posts > div.posts_tags > a {
+	white-space: pre; /* to wrap use pre-wrap */
+	margin-bottom: 0.1rem;
+	margin-top: 0.1rem;
 }
 article.posts > div.divider {
 	flex-shrink: 0; /* Stop wrapping. */
+	text-align: center;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 article.posts > time.posts
 {
-	flex-grow: 0;
+	font-family: monospace;
 	text-align: right;
-	width: 25%;
 	flex-shrink: 0; /* Stop wrapping. */
 
 }
@@ -369,8 +380,6 @@ article.posts > time.posts
 }
 .content pre code {
 	/* CODE triple  ```) */
-
-
 	margin: 0;
 	line-height: 1.1;
 	font-size: 12px;
