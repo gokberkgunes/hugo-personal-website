@@ -44,8 +44,17 @@ ul {
 p {
 	text-align: justify;
 }
+img.header_image {
+	display: block;
+	width: 90%;
+	margin-top: 1rem;
+	margin-left: auto;
+	margin-right: auto;
+	object-fit: contain;
+}
+
 /* Engineering to center, adding a padding works but enlarges the area.*/
-/* 
+/*
 /*main {
 	background-color: var(--bg3);
 	min-height: calc(90vh - 40px - 8rem);
@@ -230,7 +239,7 @@ h2 {
 	width: 100%;
 }
 h1 {
-	color: var(--orange); 
+	color: var(--orange);
 	text-decoration: none;
 	text-transform: uppercase;
 	text-align: center;
@@ -408,7 +417,7 @@ div > pre.chroma:focus {
 /* PAINT BOTTOM OF TEXTT CODE FENCE. THIS REQUIRES LAYOUTS/_DEFAULT/_MARKUP */
 div.textt > div.highlight > pre
 {
-	border-bottom: 1px solid var(--fg1); 
+	border-bottom: 1px solid var(--fg1);
 	border-radius: 0px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -421,7 +430,7 @@ div.textb > div.highlight > pre
 }
 div.shtop > div.highlight > pre
 {
-	border-bottom: 1px solid var(--fg1); 
+	border-bottom: 1px solid var(--fg1);
 	border-radius: 0px;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -436,9 +445,9 @@ div.shbot > div.highlight > pre
 
 /* PUT $ IF IT'S SH BUT NOT SELECTABLE */
 code.language-sh span.line::before{
-  content: "$ "; 
+  content: "$ ";
 }
-div.shbot > div.highlight > pre > code.language-sh > span.line::before 
+div.shbot > div.highlight > pre > code.language-sh > span.line::before
 {
 	content:"";
 }
@@ -482,3 +491,4 @@ code.language-shell span.line::before{
 .footer_frame img:hover {
 	opacity: .5;
 }
+

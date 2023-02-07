@@ -3,6 +3,7 @@ title: "Python User Package Management"
 date: 2023-02-07T17:10:39+03:00
 authors: ["Gokberk Gunes", ]
 tags: [python]
+header_image: ./images/title.webp
 draft: false
 ---
 In this post, we will delve into how to manage  packages in a computer
