@@ -17,7 +17,9 @@
 </header>
 <article>
 
+{{ if .Params.header_image }}
 <img class=header_image src={{ .Params.header_image }} alt="Header Image">
+{{ end }}
 
 
 <h2 class=toc> Table of Contents </h2>
