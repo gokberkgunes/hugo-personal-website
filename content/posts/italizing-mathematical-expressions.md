@@ -3,7 +3,7 @@ title: "Italizing Mathematical Expressions"
 date: 2023-02-09T22:49:14+03:00
 authors: ["Gokberk Gunes", ]
 tags: []
-draft: true
+draft: false
 ---
 When scientists write down their mathematical expressions they face the dillema
 of italizing the character or not.
@@ -37,11 +37,15 @@ Unfortunately, what we have written is equal to multiplying s, i, n and x.
 
 Let's give a few more wrong examples before delving into correct writing style.
 ```latex
-  \begin{gather}
-    S=\sum_{i=1}^{8}A_i\\
-    S=\sum_{i=1}^{8}B_i\\
-    S=\sum_{i=1}^{8}C_i S=\sum_{i=1}^{8}D_i
-  \end{gather}
+\begin{align}
+Re &= R \cdot e \\
+St &= S \cdot t \\
+mL &= m \cdot L \\
+dx &= d \cdot x \\
+\partial x &= \partial \cdot x \\
+\tau_{ij} &= \tau_{i \cdot j} \\
+u_{max} &= u_{m \cdot a \cdot x}
+\end{align}
 ```
 
 

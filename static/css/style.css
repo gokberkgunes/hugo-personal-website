@@ -478,7 +478,10 @@ div.math-block {
 	/* Move the element to the right by 50% of the container's width */
 }
 div.math-block > img {
-	height: 200%;
+	min-width: 200%;
+	/* center image */
+	margin-left: -50%;
+	height: auto;
 }
 
 /* *----------------------------------------------------------------------*
