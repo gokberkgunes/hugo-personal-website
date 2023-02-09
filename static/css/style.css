@@ -457,6 +457,29 @@ code.language-shell span.line::before{
   content: "# ";
 }
 
+/*span.math-inline > img {
+	text-align: center;
+	vertical-align: middle;
+}*/
+div.math{
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	border: 2px solid white;
+}
+div.math-block {
+	display:inline-block;
+	margin-left: auto;
+	margin-right: auto;
+
+	border-radius: 10px;
+	border: 2px solid red;
+	/* Move the element to the right by 50% of the container's width */
+}
+div.math-block > img {
+	height: 200%;
+}
 
 /* *----------------------------------------------------------------------*
    │                                FOOTER                                │
