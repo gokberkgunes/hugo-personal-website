@@ -42,6 +42,9 @@ ul {
 	overflow-x: auto;
 }
 p {
+	/* This stops linebreak between <p>. LaTeX inline math img same line
+	display: inline-block;
+	*/
 	text-align: justify;
 }
 img.header_image {
@@ -456,32 +459,20 @@ div.shbot > div.highlight > pre > code.language-sh > span.line::before
 code.language-shell span.line::before{
   content: "# ";
 }
+img.math-inline{
+	vertical-align: middle; /* y-axis alignment. */
+	height: auto; /* Do not set 1rem etc., letters do not fit well. */
+}
 
-/*span.math-inline > img {
-	text-align: center;
-	vertical-align: middle;
-}*/
 div.math{
 	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 10px;
-	border: 2px solid white;
 }
 div.math-block {
 	display:inline-block;
-	margin-left: auto;
-	margin-right: auto;
-
-	border-radius: 10px;
-	border: 2px solid red;
-	/* Move the element to the right by 50% of the container's width */
 }
 div.math-block > img {
-	min-width: 200%;
-	/* center image */
-	margin-left: -50%;
-	height: auto;
+	min-width: 120%;
+	margin-left: -10%; /* center image */
 }
 
 /* *----------------------------------------------------------------------*

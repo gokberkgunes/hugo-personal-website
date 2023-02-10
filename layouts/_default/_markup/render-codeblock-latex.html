@@ -45,19 +45,21 @@ References:
 {{- /* Get SVG. */}}
 {{- $url := printf "%s?%s" $apiEntryPoint $qs }}
 {{- with resources.GetRemote $url }}
-  {{- with .Err  }}
-    {{- errorf "%s" . }}
-  {{- else }}
-    {{- if $displayMode }}
-      <div class="math">
-	      <div class= math-block>
-		      <img src="{{ .RelPermalink }}" alt="">
-	      </div>
-      </div>
-    {{- else }}
-      <span class="math math-inline"><img src="{{ .RelPermalink }}" alt=""></span>
-    {{- end }}
-  {{- end }}
+	{{- with .Err  }}
+		{{- errorf "%s" . }}
+	{{- else }}
+		{{- if $displayMode }}
+			<div class="math">
+				<div class= math-block>
+				      <img src="{{ .RelPermalink }}" alt="">
+				</div>
+			</div>
+		{{- else }}
+		<p class="math-inline">
+			<img class="math-inline" src="{{ .RelPermalink }}" alt="">
+		</p>
+		{{- end }}
+	{{- end }}
 {{- else  }}
-  {{- errorf "Unable to convert LaTex to SVG. See %s" $.Position }}
+	{{- errorf "Unable to convert LaTex to SVG. See %s" $.Position }}
 {{- end }}
