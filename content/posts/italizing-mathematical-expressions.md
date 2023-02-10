@@ -37,7 +37,7 @@ St &= S \cdot t \\
 mL &= m \cdot L \\
 dx &= d \cdot x \\
 \partial x &= \partial \cdot x \\
-u_{max} &= u_{m \cdot a \cdot x}
+\mathbf{u}_{max} &= u_{m \cdot a \cdot x}
 \end{align}
 ```
 ### Neatly Written Mathematical Expressions
