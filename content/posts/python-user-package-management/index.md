@@ -31,7 +31,7 @@ pip list --user # Show all user-wise installed packages.
 ```
 
 ## Clash Between Pip and Package Manager
-Generally, it is preferable toto install packages through the package managers.
+Generally, it is preferable to install packages through the package managers.
 If we have installed the package through the package manager before, the
 package will be reinstalled. However, if we have used system-wide `pip` to
 install this package; then, `pacman` will try to install the package and throw
