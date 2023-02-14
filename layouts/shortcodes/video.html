@@ -1,0 +1,7 @@
+<!-- Ref. https://roneo.org/en/hugo-create-a-shortcode-for-local-videos/ -->
+<!--  <video preload="auto|metadata|none">  -->
+<video class="video-shortcode" preload="auto" controls>
+	<!-- autoplay=true, loop="true" -->
+	<source src="./videos/{{ .Get "name" }}" type="video/webm">
+	A video is here, current browser seems like cannot show it.
+</video>
