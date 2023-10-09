@@ -1,0 +1,10 @@
+<!--
+Modified from
+https://bitbanged.com/posts/how-to-use-inline-svgs-with-hugo/
+-->
+{{ $svg := . }}
+{{ $class := print $svg "-icon" }}
+{{ $match := "<svg (.*)?>(.*)</svg>" }}
+
+{{ $replaceWith := printf `<svg class="%s" ${1}>${2}</svg>` $class }}
+{{ return (replaceRE $match $replaceWith (printf "%s" $svg | readFile) | safeHTML) }}

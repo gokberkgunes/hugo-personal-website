@@ -7,8 +7,9 @@ draft: false
 ---
 
 When we write down mathematical expressions we commonly face the dilemma of
-italicizing the character or not. This article will guide us when we should use
-roman characters, i.e., upright font, and, when should we avoid them.
+italicizing the character or not. This article will guide us when to use
+upright characters and when to not.
+
 
 ## Mathematical Text
 ### Common Issues While Writing Mathematical Expressions
@@ -66,11 +67,11 @@ they are individual variables. If these indices are constant, it's better to kee
 
 **NOTE:** Prefer using `siunitx` package when writing units.
 
-#### Upright Greek Letters and Upright Special Letters
-Please note that Greek letters and special letters like partial operator is not
+### Upright Greek Letters and Upright Special Letters
+#### XeLaTex and LuaLatex
+Note that Greek letters and special letters like partial operator is not
 as straightforward as shown above. In order to get them right, we should follow
-this answer on Stack Exchange[^1]. Please beware that this approach will not work with `pdftex`, prefer
-either `XeLaTeX` or `LuaLaTeX`.
+this answer on Stack Exchange[^1].
 ```text
 \usepackage{unicode-math}
 
@@ -78,6 +79,14 @@ either `XeLaTeX` or `LuaLaTeX`.
 \symup{\partial}x = Partial operator on x
 \symup{\delta}_{ij} = Kronecker's delta
 ```
+#### Pdftex
+The upright Greek and special letters for `pdftex` gets hacky. There could me
+many solutions given the flexibility of Latex. You may find two solutions:
+1. [More flexible, but little strange looking.](https://tex.stackexchange.com/a/170567)
+2. [Better looking one.](https://tex.stackexchange.com/a/230220)
+
+
+
 ## Further Reading and References
 
 1. [Johannes Küster's presentation](https://www.youtube.com/watch?v=UkCjcMfV3EE)
