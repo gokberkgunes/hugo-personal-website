@@ -11,7 +11,7 @@ configurations, bug-fixes, and hacks about software I interact throughout the
 days. For public consumption, I include references and directions for further
 information.
 
-On the nagivation pane, you may find my posts, some alternative front-ends to
+On the navigation pane, you may find my posts, some alternative front-ends to
 popular websites, and a meta search engine.
 
 <!-- I find mathematics and algorithms behind the numerical solutions of
@@ -25,12 +25,12 @@ would like to understand more, start
 [here](https://www.privacyguides.org/en/basics/why-privacy-matters/). I try to
 preach and use free and open software. Some of the software I use are:
 
-- [Artix Linux](https://artixlinux.org) as the OS since easy init system,
-- [neovim](https://neovim.io) as text editor due to its hyperextensibility and keyboard-driven workflow,
+- [Artix Linux](https://artixlinux.org) as the OS (easy init system),
+- [neovim](https://neovim.io) as text editor (extensible, keyboard-driven),
 - [suckless](https://suckless.org) software, terminal and window manager and so on,
 - [Hugo](https://gohugo.io) for the website generation,
 - [OpenFOAM](https://www.openfoam.com) for fluid dynamics simulations,
-- [Signal](https://signal.org/) for personal messages.
+- [Signal](https://signal.org/) for messaging.
 
 For programming languages and documentations I use:
 - C, Python, Lua,
