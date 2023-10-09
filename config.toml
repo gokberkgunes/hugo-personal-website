@@ -41,11 +41,11 @@ pygmentsCodefences = true
 		identifier = "nitter"
 		url        = "https://nitter.berksen.net"
 		weight     = 6
-	[[menu.main]]
-		name       = "About Me"
-		identifier = "about-me"
-		url        = "/about-me"
-		weight     = 7
+	#[[menu.main]]
+	#	name       = "About Me"
+	#	identifier = "about-me"
+	#	url        = "/about-me"
+	#	weight     = 7
 	#[[menu.main]]
 	#	name       = "Jitsi"
 	#	identifier = "jitsi"
