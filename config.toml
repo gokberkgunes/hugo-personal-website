@@ -37,7 +37,7 @@ pygmentsCodefences = true
 	#	url        = "https://libreddit.berksen.net"
 	#	weight     = 5
 	[[menu.main]]
-		name       = "Twitter"
+		name       = "Nitter"
 		identifier = "nitter"
 		url        = "https://nitter.berksen.net"
 		weight     = 6
