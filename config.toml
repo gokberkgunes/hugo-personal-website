@@ -41,6 +41,11 @@ pygmentsCodefences = true
 		identifier = "nitter"
 		url        = "https://nitter.berksen.net"
 		weight     = 6
+	[[menu.main]]
+		name       = "About Me"
+		identifier = "about-me"
+		url        = "/about-me"
+		weight     = 7
 	#[[menu.main]]
 	#	name       = "Jitsi"
 	#	identifier = "jitsi"
@@ -71,7 +76,7 @@ pygmentsCodefences = true
 		# CUSTOM COLOR SCHEME CREATION
 		# Create colorscheme with hugo gen chromastyles --style=native
 		# > highlight.css. Add this to your CSS file or refer to it.
-		noClasses = false 
+		noClasses = false
 
 		noHl = false
 		# Themes: https://xyproto.github.io/splash/docs/longer/index.html
@@ -97,7 +102,7 @@ pygmentsCodefences = true
 				title = true
 		[markup.goldmark.renderer]
 			hardWraps = false
-			unsafe = false
+			unsafe = true
 			xhtml = false
 	[markup.tableOfContents]
 		endLevel = 3
