@@ -1,8 +1,8 @@
 # berksen.net
 
 I am Gökberk Güneş, a postgraduate civil engineering student at METU in Turkey.
-I am currently working on a simulation of breathing throughout the human nose
-using computational fluid dynamics simulations.
+I am currently working on a large eddy simulation of breathing throughout the
+human nose using computational fluid dynamics simulations.
 
 This website is a collection of the guides, experiments, tips and tricks that
 I would like to share with others. Also, it is what I would rather spend my
