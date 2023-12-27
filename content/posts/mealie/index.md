@@ -50,5 +50,15 @@ volumes:
    These variables may change; refer to documentation[^1].
 6. Change the default credentials for admin account in the website under
    settings tab.
+7. Get a `CNAME` in your domain. It is `mealie.berksen.net` in this case.
+8. Add below to `http` part of `nginx.conf`.
+```
+server {
+	server_name mealie.berksen.net;
+	location / {
+		proxy_pass http://127.0.0.1:9925;
+	}
+}
+```
 
 [^1]: [Mealie Documentation](https://nightly.mealie.io/documentation/getting-started/installation/installation-checklist/].)
