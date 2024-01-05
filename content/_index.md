@@ -18,10 +18,10 @@ popular websites, and a meta search engine.
 differential equations interesting. -->
 
 I am a free and open-source software advocate, and I believe that privacy,
-encryption and open software of for a free, modern society. Nevertheless, due
-to rapid technological advancements, sluggish regulations, and lacking content
-of education, people are unaware or apathetical of the potential issues. If you
-would like to understand more, start
+encryption and open software are vital needs of a modern society to be free.
+Nevertheless, due to rapid technological advancements, sluggish regulations,
+and lacking content of education, people are unaware or apathetical of the
+potential issues. If you would like to understand more, start
 [here](https://www.privacyguides.org/en/basics/why-privacy-matters/). I try to
 preach and use free and open software. Some of the software I use are:
 
