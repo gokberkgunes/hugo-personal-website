@@ -4,8 +4,60 @@ date: 2023-12-27T19:58:17+03:00
 authors: ["Gokberk Gunes", ]
 tags: [server]
 #header_imageX: ./images/title.webp
-draft: false
+draft: true
 ---
+
+## BUILD OR START DOCKER CONTAINER
+Build docker with: `doas docker-compose up`.
+Run docker in daemon form with: `doas docker-compose up -d`
+Run docker directly, with logs on screen: `doas docker-compose up`
+
+## CLI COMMANDS
+In order to execute commands in docker environments, we should get the name of
+the docker container. This is easily done with a single command that shows all
+the images created by the user.
+
+```sh
+doas docker ps -a
+```
+
+
+- Get help
+doas docker exec vikunja-api-1 /app/vikunja/vikunja help
+
+- Get help for commands concerning users
+doas docker exec vikunja-api-1 /app/vikunja/vikunja user help
+
+- Create a user
+doas docker exec vikunja-api-1 /app/vikunja/vikunja user create -u user_name -p password -e email@not.required
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Installation of Mealie
 In this guide, we will install mealie with docker given that how
@@ -94,8 +146,8 @@ http {
 ### Enable Encryption (https)
 Encryption is a vital requirement for any activity online. For `mealie`, this is
 done very easily by using the great tool `certbot.` Simply, we should run `certbot` as
-the root user to generate a certificate. To do this, run `doas certbot` and
-generate the `https` certificate.
+the root user to generate a certificate. To do this, run `doas certbot` or
+`sudo certbot` or `su -c certbot`, and generate the `https` certificate.
 
 
 [^1]: This is done to avoid setting mail server and settings related to it.
