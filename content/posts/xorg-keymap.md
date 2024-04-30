@@ -1,7 +1,7 @@
 ---
 title: "Keyboat Layouts for Xorg & TTY"
 date: 2022-07-30T20:09:05+03:00
-tags: ["server", "selfhost"]
+#tags: []
 draft: false
 ---
 This guide will lead one in following fields:
