@@ -1,33 +1,33 @@
 # berksen.net
 
-I am Gökberk Güneş, a postgraduate civil engineering student at METU in Turkey.
-I am currently working on a large eddy simulation of breathing throughout the
+I am Gökberk Güneş, a recent  M.Sc. graduate in Civil Engineering, METU in
+Turkey. I have worked on a large eddy simulation of breathing throughout the
 human nose using computational fluid dynamics simulations.
 
 This website is a collection of the guides, experiments, tips and tricks that
 I would like to share with others. Also, it is what I would rather spend my
-time and develop over social media. Generally speaking, I try to document
+time and develop over social media. Generally, I try to document
 configurations, bug-fixes, and hacks about software I interact throughout my
 days. For public consumption, I include references and directions for further
 information.
 
 On the navigation pane, you may find my posts, some alternative front-ends to
-popular websites, and a meta search engine.
+popular websites, and a meta-search engine.
 
 <!-- I find mathematics and algorithms behind the numerical solutions of
 differential equations interesting. -->
 
 I am a free and open-source software advocate, and I believe that privacy,
-encryption and open software are vital needs of a modern society to be free.
+encryption and open software are the vital needs of a modern society.
 Nevertheless, due to rapid technological advancements, sluggish regulations,
-and lacking content of education, people are unaware or apathetical of the
+and lacking content in education, people are unaware or apathetical of the
 potential issues. If you would like to understand more, start
 [here](https://www.privacyguides.org/en/basics/why-privacy-matters/). I try to
 preach and use free and open software. Some of the software I use are:
 
-- [Artix Linux](https://artixlinux.org) as the OS (easy init system),
-- [neovim](https://neovim.io) as text editor (extensible, keyboard-driven),
-- [suckless](https://suckless.org) software, terminal and window manager and so on,
+- [Artix Linux](https://artixlinux.org) as the operating system
+- [neovim](https://neovim.io) as the text editor
+- [suckless](https://suckless.org) software, terminal and window manager
 - [Hugo](https://gohugo.io) for the website generation,
 - [OpenFOAM](https://www.openfoam.com) for fluid dynamics simulations,
 - [Signal](https://signal.org/) for messaging.
