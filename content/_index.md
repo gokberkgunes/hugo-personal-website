@@ -28,12 +28,12 @@ preach and use free and open software. Some of the software I use are:
 - [Artix Linux](https://artixlinux.org) as the operating system
 - [neovim](https://neovim.io) as the text editor
 - [suckless](https://suckless.org) software, terminal and window manager
-- [Hugo](https://gohugo.io) for the website generation,
-- [OpenFOAM](https://www.openfoam.com) for fluid dynamics simulations,
-- [Signal](https://signal.org/) for messaging.
+- [Hugo](https://gohugo.io) for the website generation
+- [OpenFOAM](https://www.openfoam.com) for fluid dynamics simulations
+- [Signal](https://signal.org/) for messaging
 
 For programming languages and documentations I use:
-- C, Python, Lua,
+- C, Python, Lua
 - Latex and Markdown.
 
 ## Contact
