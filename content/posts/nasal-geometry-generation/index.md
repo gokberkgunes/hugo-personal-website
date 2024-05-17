@@ -1,6 +1,6 @@
 ---
 title: "Nasal Cavity Geometry Generation for CFD"
-date: 2023-02-14T18:33:19+03:00
+date: 2024-05-17T00:00:00+03:00
 authors: ["Gokberk Gunes", ]
 tags: [Blender, Mesh]
 header_image:
