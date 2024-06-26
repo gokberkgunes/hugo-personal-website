@@ -1,0 +1,22 @@
+/* Good hugo theme css:
+ * https://github.com/nishanths/cocoa-hugo-theme/blob/master/static/css/main.css
+ * DEFINE THE SCROLLBAR
+ */
+table {
+	/* width: 20%; */
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+}
+th {
+	border: 0px solid black;
+	border-bottom: 1px solid var(--fg1);
+	padding: 8px;
+	padding-top: 1rem;
+}
+
+td {
+	border: 0px solid black;
+	border-bottom: 1px solid var(--fg1);
+	padding: 8px;
+}
