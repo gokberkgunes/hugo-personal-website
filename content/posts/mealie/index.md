@@ -2,7 +2,7 @@
 title: "Mealie Installation Steps"
 date: 2023-12-27T19:58:17+03:00
 authors: ["Gokberk Gunes", ]
-tags: [server, self-hosting]
+tags: [server]
 #header_imageX: ./images/title.webp
 draft: false
 ---
