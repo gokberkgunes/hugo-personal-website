@@ -142,7 +142,7 @@ video.video-shortcode {
 		position: sticky;
 		background-color: var(--bg2);
 
-		align-content: center;
+		align-content: flex-start;
 		text-align: center;
 		filter: grayscale(0%) opacity(0.7);
 
@@ -157,7 +157,6 @@ video.video-shortcode {
 		filter: grayscale(0%) opacity(0.9);
 	}
 	.narBar img {
-
 		display: block;
 	}
 	.navItem:hover {
