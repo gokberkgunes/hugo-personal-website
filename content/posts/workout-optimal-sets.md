@@ -12,8 +12,8 @@ RP (Renaissance Periodization) have been publishing optimal of sets for each
 body group to get maximum amount of hypertrophy[^1]. In this text, we will 
 cover optimal number of sets and create a short and sweet workout rotation.
 We will be using the handy tool created by Ryan Lefebvre, as can be seen
-[here](https://github.com/RyanLefebvre/RP-Hypertrophy-Hub-Visualizer) and also
-a table given in a [reddit
+[here](https://github.com/RyanLefebvre/RP-Hypertrophy-Hub-Visualizer), also
+a similar table is given in this [reddit
 post](https://old.reddit.com/r/weightroom/comments/6674a4/dr_mike_israetels_training_tips_for_hypertrophy/). 
 
 
@@ -50,6 +50,20 @@ experienced bodybuilders.
 | Forearms        | 0                  | 2-8             | 9-19           |
 
 
+Even though these numbers place in the
+optimal volume ranges, due to genetic variations we might need to do more or
+less than required sets. Broadly speaking, we should still be in the upper and
+lower thresholds of given optimal volume marks. However, since most of the
+movements we are do are compound, the numbers are bound to change. Therefore,
+we need a method to decide personal number of optimal sets.
+
+In order to decide personal optimal number of sets, we can use four predictors:
+- soreness level and length
+- amount of pump during the sets
+- progressive overload
+- perceived challenge
+
+
 ## Example Bodybuilding Routine
 In this routine, we will exercise 3 days and have 1 day rest day time
 afterwards. However, rest day will have accessory movements that one can prefer
@@ -61,27 +75,41 @@ roughly, we train every muscle twice every week.
 ### Day 1: Leg Day
 
 This day consists of 4 movements, they target glutes, quads, hamstrings and
-calves. We will do this day twice a week.
+calves. We will do this day twice a week. During this day, we will do Bulgarian
+Split Squats, Heels-Elevated Squats, Stiff Legged Deadlifts (or Romanian
+Deadlifts), Single Leg Calf Raises. These exercises are compound and easily
+accessible movements. They are not only working out multiple muscles at a time
+but also easily accessible. Therefore, this leg day is quick, effective,
+accessible. However, this day also causes a lot of stress on body, i.e., axial
+fatigue, given that they are compound movements.
 
-During this day, we will do Bulgarian Split Squats (BSS), Heels-Elevated Squats
-(HES), Stiff Legged Deadlifts (SLDL) or Romanian Deadlifts, Single Leg Calf
-Raises (SLCR). These movements are easily accessible, we would need a bench,
-squat rack and dumbbells. Furthermore, replacing these movements are totally
-acceptables but we should not pick inferior movements. Thus, we should pick
-movements that have tension under stretch, i.e. movements that are fit to be
-done as lenghtened partials.
+During the leg day, we only need a bench, a squat rack, and two dumbbells.
+Also, we may easily replace today's movements but we should
+not pick inferior movements. Thus, we should pick movements that have tension
+under stretch, i.e. movements that are fit to be done as lenghtened partials.
 
 During these movements, try to pause on stretched position for maximum growth.
 These pauses allows us to do less sets for the optimal hypertrophy. Therefore,
 not only we avoid doing the higher end of optimal value but also we get less
 fatigued because of the workouts.
 
-| Movement                     | Muscle Group   | Set/Day   | Group's Set/Week | Optimal Vol.   |
-| :--------------------------- | :------------: | :-------: | :--------:       | :------------: |
-| Split Squat                  | Glutes         | 3         | 6                | 4-12           |
-| Squat[^2]                    | Quads          | 4         | 8                | 9-17           |
-| Romanian Deadlift            | Hamstrings     | 3         | 6                | 5-12           |
-| Single Leg Calf Raise[^3]    | Calves         | 3         | 6                | 4-10           |
+| Movement                     | Muscle Group   | Set/Day   |
+| :--------------------------- | :------------: | :-------: |
+| Split Squat                  | Glutes         | 3         |
+| Squat[^2]                    | Quads          | 4         |
+| Romanian Deadlift            | Hamstrings     | 3         |
+| Single Leg Calf Raise[^3]    | Calves         | 3         |
+
+#### Leg Weekly Volumes
+Above leg workout results in below weekly volume against optimal
+weekly volume when done twice a week. 
+
+| Muscle Group   | Group's Set/Week | Optimal Vol.   |
+| :------------: | :--------:       | :------------: |
+| Glutes         | 6                | 4-12           |
+| Quads          | 8                | 9-17           |
+| Hamstrings     | 6                | 5-12           |
+| Calves         | 6                | 4-10           |
 
 ### Day 2: Pull Day
 This day will be done twice, and both of the days will be exactly same as shown
@@ -94,8 +122,17 @@ target traps, back, back delts and biceps.
 | T-Bar Row                | Back           | 3             | 12               | 11-19            |
 | Lat Pulldown[^4]         | Back           | 3             | 12               | 11-19            |
 | Inclined Dummbell Curl   | Biceps         | 4             | 8                | 9-19             |
-|                          |                |               |                  |                  |
 
+#### Pull Weekly Volumes
+The above two variations of pull days end up as in below table in terms of
+weekly volumes against optimal weekly volume when done twice a week. 
+
+| Muscle Group   | Group's Set/Week | Optimal Vol.     |
+| :------------: | :------------:   | :--------------: |
+| Traps          | 8                | 7-24             |
+| Back           | 12               | 11-19            |
+| Back           | 12               | 11-19            |
+| Biceps         | 8                | 9-19             |
 
 
 ### Day 3: Push Day
@@ -105,8 +142,7 @@ during the other we will focus more on triceps. This difference just comes from
 second movement in the superset as shown below.
 
 This day's movements are Inclined Bench Press (IBP), Cable Overhead Triceps
-Extension (COTE), Front Raises (FR), Overhead Single-Arm Dumbbell Extension
-(OSDE), 
+Extension, Front Raises, Overhead Single-Arm Dumbbell Extension. 
 
 During the push day, we will train our chest, triceps, front and middle delts.
 
@@ -117,7 +153,7 @@ During the push day, we will train our chest, triceps, front and middle delts.
 | Inclined Bench Press (Superset)               | Chest          | 3             | 12               | 7-19             |
 | Front Raises (Superset)                       | Front Delts    | 3             | 3                | 0-12             |
 | Dumbbell Flies                                | Chest          | 3             | 12               | 7-19             |
-| Overhead Dumbbell Extension[^5]               | Triceps        | 3             | 9                | 7-19             |
+| Overhead Dumbbell Extension                   | Triceps        | 3             | 9                | 7-19             |
 | Lateral Raises                                | Side Delts     | 4             | 14               | 9-24             |
 
 #### Push Day: Variation 2 
@@ -126,7 +162,7 @@ During the push day, we will train our chest, triceps, front and middle delts.
 | Inclined Bench Press (Superset)             | Chest          | 3             | 12               | 7-19             |
 | Cable Overhead Triceps Extension (Superset) | Triceps        | 3             | 9                | 7-19             |
 | Dumbbell Flies                              | Chest          | 3             | 12               | 7-19             |
-| Overhead Dumbbell Extension[^5]             | Triceps        | 3             | 9                | 7-19             |
+| Overhead Dumbbell Extension                 | Triceps        | 3             | 9                | 7-19             |
 | Lateral Raises                              | Side Delts     | 4             | 14               | 9-24             |
 
 ### Day 4: Break Day
