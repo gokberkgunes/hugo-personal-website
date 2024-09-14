@@ -1,15 +1,16 @@
 # berksen.net
 
-I am Gökberk Güneş, a recent  M.Sc. graduate in Civil Engineering, METU in
-Turkey. I have worked on a large eddy simulation of breathing throughout the
-human nose using computational fluid dynamics simulations.
+I am Gökberk Güneş, a recent  M.Sc. graduate in Civil Engineering from Middle
+East Technical University in Turkey. My research focused on large eddy
+simulations of airflow through human nose by employing numerical simulations.
+Currently, I am converting my thesis into a publication and working
+on topics such as scientific programming and machine learning.
 
-This website is a collection of the guides, experiments, tips and tricks that
-I would like to share with others. Also, it is what I would rather spend my
-time and develop over social media. Generally, I try to document
-configurations, bug-fixes, and hacks about software I interact throughout my
-days. For public consumption, I include references and directions for further
-information.
+I am preparing this website as a collection of issues I've solved throughout my
+time on earth. The topics generally revolve around self-hosting, Linux, fluid
+dynamics, and programming. I document configurations, bug fixes, and hacks
+about software I interact on a daily basis. For public consumption, I try to
+include references and directions for further information.
 
 On the navigation pane, you may find my posts, some alternative front-ends to
 popular websites, and a meta-search engine.
@@ -23,23 +24,23 @@ Nevertheless, due to rapid technological advancements, sluggish regulations,
 and lacking content in education, people are unaware or apathetical of the
 potential issues. If you would like to understand more, start
 [here](https://www.privacyguides.org/en/basics/why-privacy-matters/). I try to
-preach and use free and open software. Some of the software I use are:
+preach and use free and open software. Some of the software I prefer to use are:
 
-- [Artix Linux](https://artixlinux.org) as the operating system
-- [neovim](https://neovim.io) as the text editor
-- [suckless](https://suckless.org) software, terminal and window manager
-- [Hugo](https://gohugo.io) for the website generation
+- [Artix Linux](https://artixlinux.org) as my operating system
+- [neovim](https://neovim.io), my text editor choice
+- [suckless](https://suckless.org) software for terminal and window manager needs
+- [Hugo](https://gohugo.io) for website generation
 - [OpenFOAM](https://www.openfoam.com) for fluid dynamics simulations
 - [Signal](https://signal.org/) for messaging
 
-For programming languages and documentations I use:
-- C, Python, Lua
-- Latex and Markdown.
+The programming languages and documentation formats I use include:
+- C, Python, Lua, Rust
+- Latex and Markdown
 
 ## Contact
 
-You may contact me via `prhi2@tutanota.com`, and preferably so with a PGP
-encryption using the below armored PGP public key.
+Contact me via `prhi2 at tutanota com`. Preferably, use PGP
+encryption with the armored PGP public key provided below.
 
 ```txt
 -----BEGIN PGP PUBLIC KEY BLOCK-----
