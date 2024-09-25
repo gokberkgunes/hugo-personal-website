@@ -73,20 +73,23 @@ amount of time while working out rested muscles. When we follow this program,
 roughly, we train every muscle twice every week.
 
 ### Day 1: Leg Day
+The example leg day below is one of the shortest leg day which covers all the
+four lower body components: glutes, quads, hamstrings and calves. Generally,
+lower body muscles is optimally trained 1-3 times per week, and in this plan we
+will train them twice.
 
-This day consists of 4 movements, they target glutes, quads, hamstrings and
-calves. We will do this day twice a week. During this day, we will do Bulgarian
-Split Squats, Heels-Elevated Squats, Stiff Legged Deadlifts (or Romanian
-Deadlifts), Single Leg Calf Raises. These exercises are compound and easily
-accessible movements. They are not only working out multiple muscles at a time
-but also easily accessible. Therefore, this leg day is quick, effective,
-accessible. However, this day also causes a lot of stress on body, i.e., axial
-fatigue, given that they are compound movements.
+Leg day incorporates four movements: Bulgarian Split Squats, Heels-Elevated
+Squats, Stiff Legged Deadlifts (or Romanian Deadlifts), Single Leg Calf Raises.
+All of these exercises are compound and machine-free movements. Therefore,
+this leg day is quick, effective, accessible. However, this day will cause
+a lot of stress on our bodies, i.e., axial fatigue, given that they are
+compound movements.
 
 During the leg day, we only need a bench, a squat rack, and two dumbbells.
 Also, we may easily replace today's movements but we should
-not pick inferior movements. Thus, we should pick movements that have tension
-under stretch, i.e. movements that are fit to be done as lenghtened partials.
+not pick inferior movements (tension during lenghtened/streched position is
+needed). Thus, we should pick movements that have tension under stretch, i.e.
+movements that are fit to be done as lenghtened partials.
 
 During these movements, try to pause on stretched position for maximum growth.
 These pauses allows us to do less sets for the optimal hypertrophy. Therefore,
