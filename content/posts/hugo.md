@@ -1,7 +1,7 @@
 ---
 title: "Starting out with Hugo"
 tags: ["self-hosting", "hugo"]
-date: 2020-09-03T17:27:59+07:00
+date: 2022-06-03T17:27:59+07:00
 ---
 ## Introduction
 In this _Starting out with Hugo_ guide, we will be setting Hugo, which
@@ -41,7 +41,7 @@ default, if we are more accustomed to yaml, we can set it up by adding
 `--format yaml` to the below command. Nonetheless, let's continue our guide
 with toml given that it is the default.
 ```sh
-hugo new site "$cool_website_name"
+hugo new site $website_name
 ```
 
 Download a theme and initialize it. Themes may be found on the [official
