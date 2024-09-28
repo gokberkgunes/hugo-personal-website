@@ -1,6 +1,7 @@
 baseURL = "https://berksen.net/"
 title = "Gokberk Gunes"
 languageCode = 'en-us'
+enableGitInfo = true
 pygmentsUseClasses = true
 pygmentsCodefences = true
 
