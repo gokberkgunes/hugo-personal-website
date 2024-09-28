@@ -70,9 +70,11 @@ firefox http://localhost:1313/
 ```
 
 Finally, we can create out new post, usually posts are located under the folder
-`content`. Below, the command to create a new post is given.
+`content`. Below, the first command to creates a single post, and the second
+command creates a post encapsulated in a directory.
 ```sh
-hugo new posts/first.md
+hugo new posts/"$post_name".md
+hugo new posts/"$post_name"/index.md
 ```
 
 Above command gets very useful when we introduce user-defaults to Hugo in
