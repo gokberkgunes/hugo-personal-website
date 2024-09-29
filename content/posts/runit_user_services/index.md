@@ -77,6 +77,14 @@ groups="$(id -Gn "$USER" | tr ' ' ':')"
 exec chpst -u "$USER:$groups" runsvdir "$sv_dir"
 ```
 
+**NOTE:** It is critical to know that the exported variables will linger in our
+other services. For example, if you create a runit user script in `$SVDIR`, it
+will know that `$USER` is `gg` and `$XDG_CONFIG_HOME` is
+`/home/$USER/.local/etc`. Especially `$XDG_CONFIG_HOME` is used to store
+configuration files, and if you do not export it here or in other run script,
+your programs will not behave correctly.
+
+
 ### Creation of Logger Script
 
 Next, we will create logging script for error tracking.
@@ -101,9 +109,10 @@ autorun the service.
 ln -sf /etc/runit/sv/runsvdir/ /run/runit/service/
 ```
 
-Now, we can start populating our `$XDG_CONFIG_HOME/runit` with our user
-services. As of now, there is a slight annoyance ahead of us: we call runit as
-user with `sv`, we need to give full path of the service, for example `sv start
+After the creation of log script, we can start populating our
+`$XDG_CONFIG_HOME/runit` with our user services. Right now, we have a slight
+annoyance at our hand: whenever we call runit as user with `sv`, we have to
+give full path of the service, for example `sv start
 $XDG_CONFIG_HOME/runit/pipewire`. In order to call `sv start pipewire` instead,
 we should export `$SVDIR` environmental variable. Just add a such variable to
 your .profile of choice.
