@@ -7,7 +7,7 @@ date: 2022-06-03T17:27:59+07:00
 In this _Starting out with Hugo_ guide, we will be setting Hugo, which
 self-claims that Hugo is the world's fastest framework for building websites.
 For us, Hugo's main advantage is that it eases whole website generation and
-maintainance. 
+maintainance.
 
 The main content are written effortlessly by using markdown. Markdown usage
 totally cuts the requirement of HTML in the website. Still, for some further
@@ -18,15 +18,16 @@ straightforward.
 The selection and usage of Go in Hugo makes it fast and safe. We can have
 a live demo that shows our changes on the fly. When we are satisfied,
 a second-long compilation will give us our website in HTML, CSS and if needed
-JS. 
+JS.
 
 At this point, I should note that I wrote this website is written using Hugo
 without a single line of JS, yet the flexibility and features I have are
 mindblowing. For example, I have syntax highlighting, selection of code-blocks
 with a single click, embedded-video, able to write/render Latex code. Please
 note that I do all of these inside markdown using aferomentioned quick codes
-and so on. Please check the [source code](https://github.com/gokberkgunes/hugo-personal-website) of my website if you want to see the
-options.
+and so on. Please check the
+[source ](https://github.com/gokberkgunes/hugo-personal-website) of my website
+if you want to see the options.
 
 ## Installation and Preperation
 Let's start with download Hugo. I used pacman in this example since I use an

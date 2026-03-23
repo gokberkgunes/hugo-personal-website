@@ -44,22 +44,27 @@ References:
 
 {{- /* Get SVG. */}}
 {{- $url := printf "%s?%s" $apiEntryPoint $qs }}
-{{- with resources.GetRemote $url }}
-	{{- with .Err  }}
-		{{- errorf "%s" . }}
-	{{- else }}
-		{{- if $displayMode }}
-			<div class="math">
-				<div class= math-block>
-				      <img src="{{ .RelPermalink }}" alt="">
-				</div>
-			</div>
-		{{- else }}
-		<p class="math-inline">
-			<img class="math-inline" src="{{ .RelPermalink }}" alt="">
-		</p>
-		{{- end }}
-	{{- end }}
-{{- else  }}
-	{{- errorf "Unable to convert LaTex to SVG. See %s" $.Position }}
+{{- $res := "" }}
+
+{{- with try (resources.GetRemote $url) }}
+  {{- with .Err }}
+    {{- errorf "LaTeX conversion failed at %s: %s" $.Position . }}
+  {{- else }}
+    {{- $res = .Value }}
+    {{- if $res }}
+        {{- if $displayMode }}
+            <div class="math">
+                <div class="math-block">
+                    <img src="{{ $res.RelPermalink }}" alt="LaTeX Equation">
+                </div>
+            </div>
+        {{- else }}
+            <span class="math-inline">
+                <img class="math-inline" src="{{ $res.RelPermalink }}" alt="LaTeX Equation">
+            </span>
+        {{- end }}
+    {{- else }}
+        {{- errorf "Unable to fetch SVG from %s at %s" $url $.Position }}
+    {{- end }}
+  {{- end }}
 {{- end }}
