@@ -23,17 +23,20 @@ SimpleSSHD is a dropbear based ssh2 server, per its
 app on FDroid.
 
 ### Connection to SimpleSSHD
-1. Check phone's local IP adress through its wifi settings.
-2. Run SimpleSSHD
-2. Ssh into it with SimpleSSHD's default port 2222.
+1. Make sure both your device and phone connected to the same modem.
+2. Run SimpleSSHD.
+3. Start connection from SimpleSSHD, then check phone's local IP adress through
+   SimpleSSHD screen. It should be saying `... from 192.168.xxx.xxx` on the
+    last line. Do not use the one saying `IP: ...`.
+4. Ssh into it with SimpleSSHD's default port 2222.
     -  `ssh -p 2222 192.168.xxx.xxx`
-3. Read password from phone SimpleSSHD.
-3. Create `authorized_keys` file at location of ssh
+5. Read password from phone SimpleSSHD.
+6. Create `authorized_keys` file at location of ssh
     - `touch authorized_keys`
-4. Add your public key there, you can use vi or redirect stdout.
+7. Add your public key there, you can use vi or redirect stdout.
     - `cat $PUBLICKEY > authorized_keys`
-5. Finally run `sshfs`
-    - `sshfs -F $SSH_CONFIG -p2222 user@192.168.xxx.xxx:/storage/emulated/0 /mnt/storage`
+8. Finally run `sshfs`
+    - `sshfs -F $SSH_CONFIG -p2222 user@192.168.xxx.xxx:/storage/emulated/0 /mnt/android`
 
 ### Notes
 Below the quotes from the official website.
