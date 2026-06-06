@@ -2,9 +2,10 @@
 <nav class="navBar" scrolling="no">
 	<!--    <a class="logo" href="{{ .Site.BaseURL }}"> {{ .Site.Title }} </a> -->
 	<ul class="navMenu">
-		<li class="navItemImg"><a class="navLinkImg" href="{{ .Site.BaseURL }}"><img src=/img/me.jpg alt="picture"></a></img></li>
+		<!-- <li class="navItemImg"><a class="navLinkImg" href="{{ .Site.BaseURL }}"><img src=/img/me.jpg alt="picture"></a></img></li> -->
 		{{ range.Site.Menus.main }}
 		<li class="navItem"> <a href="{{ .URL }}" {{ if (hasPrefix .Identifier "ext-") }}target="_blank"{{ end }} >{{ .Pre }} {{ .Name }}</a></li>
 		{{ end }}
 	</ul>
 </nav>
+

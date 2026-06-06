@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="/css/index.css">
+<nav class="navBar" scrolling="no">
+	<ul class="navMenu">
+        {{ if .IsHome }}
+		<li class="navItemImg"><a class="navLinkImg" href="{{ .Site.BaseURL }}"><img src="/img/me.jpg" alt="picture" style="width: 12rem; display: block; margin: 0; padding: 0;"></a></li>
+        {{ end }}
+
+		{{ range .Site.Menus.main }}
+		<li class="navItem">
+            <a class="navLink" href="{{ .URL }}" {{ if (hasPrefix .Identifier "ext-") }}target="_blank"{{ end }}>{{ .Pre }} {{ .Name }}</a>
+        </li>
+		{{ end }}
+	</ul>
+</nav>
